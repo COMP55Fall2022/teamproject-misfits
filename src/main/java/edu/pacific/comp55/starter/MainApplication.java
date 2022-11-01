@@ -38,6 +38,7 @@ public class MainApplication extends GraphicsApplication {
 	}
 	
 	public static void main(String[] args) {
+		//test
 		new MainApplication().start();
 	}
 }
