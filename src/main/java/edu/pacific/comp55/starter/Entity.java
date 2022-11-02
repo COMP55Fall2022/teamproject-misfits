@@ -1,14 +1,21 @@
 package edu.pacific.comp55.starter;
 
+import acm.graphics.*;
+
 //Base values for the entity class
 public class Entity {
 	int health;
 	int attackDamage;
 	int moveSpeed;
-	int jumpPower=10;
+	int jumpPower;
 	boolean isParrying=false;
 	boolean isAttacking=false;
 	boolean attackDebounce=false;
+	
+	GImage playerModel = new GImage("55GroupProjectUML.jpg");
+	
+	
+	
 	
 	//ENTITY CLASS CONSTRUCTOR
 
