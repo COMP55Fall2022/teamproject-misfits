@@ -1,9 +1,13 @@
 package edu.pacific.comp55.starter;
 
 import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+
 
 //Base values for the entity class
-public class Entity {
+public class Entity extends GraphicsProgram{
 	int health;
 	int attackDamage;
 	int moveSpeed;
@@ -12,8 +16,11 @@ public class Entity {
 	boolean isAttacking=false;
 	boolean attackDebounce=false;
 	
-	GImage playerModel = new GImage("55GroupProjectUML.jpg");
-	
+	public void init() {
+		setSize(1920,1080);
+		requestFocus();
+	}
+	GImage playerModel = new GImage("",500,500);
 	
 	
 	
@@ -27,12 +34,18 @@ public class Entity {
 		jumpPower = JP;
 	}
 	
-	public void drawPlayermodel() {
-		
+	public void run() {
+		add(playerModel);
 	}
 
 	
 	
+
+
+	public static void main(String[] args) {
+		new Entity(5,5,5,5).start();
+	}
+
 }
 
 
