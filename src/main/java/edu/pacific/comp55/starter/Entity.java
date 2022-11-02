@@ -16,11 +16,12 @@ public class Entity extends GraphicsProgram{
 	boolean isAttacking=false;
 	boolean attackDebounce=false;
 	
+	GImage playerModel = new GImage("media/idle_Onigiri.png",250,250);
+
 	public void init() {
 		setSize(1920,1080);
 		requestFocus();
 	}
-	GImage playerModel = new GImage("",500,500);
 	
 	
 	
@@ -35,6 +36,7 @@ public class Entity extends GraphicsProgram{
 	}
 	
 	public void run() {
+		playerModel.setSize(300,300);
 		add(playerModel);
 	}
 
