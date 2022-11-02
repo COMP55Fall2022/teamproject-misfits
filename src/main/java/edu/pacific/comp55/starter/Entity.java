@@ -1,5 +1,5 @@
 package edu.pacific.comp55.starter;
 
-public class Character {
+public class Entity {
 
 }
