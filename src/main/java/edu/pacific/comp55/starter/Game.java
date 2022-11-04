@@ -4,6 +4,11 @@ import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Scanner;
 
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+
 
 
 public class Game {
@@ -16,8 +21,25 @@ public class Game {
 	Level level;
 	String wantPlay;
 	
+	//public void init() {
+		//setSize(500, 500);
+		//requestFocus();
+	////}
 
 	
+	GLabel exitGame = new GLabel("You Quit", 200, 300);
+	
+	//public void run() {
+	//	GLabel exitGame = new GLabel("You Quit", 200, 300);
+		
+		
+		
+		
+		
+	//}
+
+
+
 	public void startGame(){
 		running = true;
 		playerInput = new Scanner(System.in);
@@ -37,16 +59,17 @@ public class Game {
 		} while(playerChoice <1 || playerChoice >2 );{
 			if(playerChoice ==1)
 				System.out.println("play game");
+			//need to add the level background and characters here
 			
 				else if(playerChoice ==2) {
 			System.out.println("you quit");
+			
+			//need to add the exit game image here
 		}
 		}
 	
 	}
-	
-	
-	
+		
 	public void pauseGame() {
 		pause = !pause;
 		
@@ -67,9 +90,10 @@ public class Game {
 	
 	
 	public static void main(String[] args) throws IOException {
-		Game game = new Game();
-		game.startGame();
+		new Game().startGame();
 		
 		
 	}
+
+
 }
