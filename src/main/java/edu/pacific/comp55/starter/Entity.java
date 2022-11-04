@@ -54,12 +54,23 @@ public class Entity extends GraphicsProgram implements ActionListener{
 		switch(keyCode) {
 
 		case KeyEvent.VK_LEFT:
+			if ((playerModel.getX()>=-100)){
 			playerModel.move(-10, 0);
+			}
+			else {
+				playerModel.move(10, 0);
+			}
 			break;
 		
 		case KeyEvent.VK_RIGHT:
-			playerModel.move(10, 0);
+			if ((playerModel.getX()<=1350)){
+				playerModel.move(10, 0);
+				}
+				else {
+					playerModel.move(-10, 0);
+				}
 			break;
+	
 		}
 	}
 	
