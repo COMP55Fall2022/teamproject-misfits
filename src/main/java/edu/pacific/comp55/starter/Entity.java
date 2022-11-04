@@ -5,9 +5,13 @@ import acm.program.*;
 import java.awt.*;
 import acm.util.*;
 
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+
 
 //Base values for the entity class
-public class Entity extends GraphicsProgram{
+public class Entity extends GraphicsProgram implements ActionListener{
 	int health;
 	int attackDamage;
 	int moveSpeed;
@@ -21,6 +25,8 @@ public class Entity extends GraphicsProgram{
 	public void init() {
 		setSize(1920,1080);
 		requestFocus();
+		addKeyListeners();
+
 	}
 	
 	
@@ -39,13 +45,38 @@ public class Entity extends GraphicsProgram{
 		playerModel.setSize(300,300);
 		add(playerModel);
 	}
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
+		System.out.println("keyPressed");
+		System.out.println(e.getKeyCode());
+		int keyCode = e.getKeyCode();
+		switch(keyCode) {
 
+		case KeyEvent.VK_LEFT:
+			playerModel.move(-10, 0);
+			break;
+		
+		case KeyEvent.VK_RIGHT:
+			playerModel.move(10, 0);
+			break;
+		}
+	}
+	
+	/*@Override
+	public void keyReleased(KeyEvent e) {
+		if(curScreen != null) {
+			curScreen.keyReleased(e);
+		}
+	}
+	*/
 	
 	
 
 
 	public static void main(String[] args) {
 		new Entity(5,5,5,5).start();
+		
 	}
 
 }
