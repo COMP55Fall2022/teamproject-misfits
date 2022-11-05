@@ -36,6 +36,10 @@ public class Game extends Canvas implements Runnable{
 		running = true;
 	}
 	
+	public static int clamp(int val, int min, int max ) {
+		return Math.max(min, Math.min(max,val));
+	}
+	
 	public synchronized void stop() {
 		try {
 			thread.join();
@@ -91,17 +95,17 @@ public class Game extends Canvas implements Runnable{
 	
 	
 	Graphics g = bs.getDrawGraphics();
-	g.setColor(Color.green);
+	g.setColor(Color.yellow);
 	g.fillRect(0, 0, Width, Height);
 	playerHud.render(g);
 	g.dispose();
 	bs.show();
 	}
 	
-	//	public void startGame(){
+	public void startGame(){
 		
-	//	playerHUD = new PlayerHUD();
-	
+		playerHud = new PlayerHUD();
+	}
 	
 	public static void main(String[] args) {
 		new Game();

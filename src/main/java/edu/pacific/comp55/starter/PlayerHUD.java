@@ -4,23 +4,37 @@ import java.awt.Color;
 import java.awt.Color.*;
 import java.awt.Graphics;
 
+import acm.graphics.GImage;
+
+import java.awt.Graphics;
+
 public class PlayerHUD {
-	//HealthBar: GImage
+	
 	//- Playericon: GImage
 	//- BarParticle: GImage
 	//-StatusEffect: GImage
 	public static int HEALTH = 100;
 	
 	public void tick(){
-		
+	//test code
+		HEALTH --;
+		//stops health from declining past its borders
+		HEALTH = Game.clamp(HEALTH,0,100);
 	}
+	
+	
 	
 	public void render(Graphics g) {
-		g.setColor(Color.gray);
-		g.fillRect(15,15,200,32);
+		g.setColor(Color.red); 
+		g.fillRect(15,15,200,32); // this will show in background when health is --
+		g.setColor(Color.green);
+		g.fillRect(15,15,HEALTH*2,32); // current health
+		g.setColor(Color.black); // border around health for contrast
+		g.drawRect(15,15,200,32);
+		
+		
 		
 	}
-	
-	
+
 	
 }
