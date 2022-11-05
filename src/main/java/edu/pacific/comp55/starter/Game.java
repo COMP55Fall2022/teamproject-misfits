@@ -1,6 +1,7 @@
 package edu.pacific.comp55.starter;
 
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -8,89 +9,102 @@ import acm.graphics.*;
 import acm.program.*;
 import java.awt.*;
 import acm.util.*;
+import java.awt.Canvas;
 
 
-
-public class Game {
-	boolean playing = false;
-	boolean pause = false;
-	boolean resume = false;
-	boolean running = false;
-	private Scanner playerInput;
-
-	Level level;
-	String wantPlay;
+public class Game extends Canvas implements Runnable{
+	private static final long serialVersionUID = 1L;
 	
-	//public void init() {
-		//setSize(500, 500);
-		//requestFocus();
-	////}
+	public static final int Width = 640, Height = Width/12*9;
 
+	String title = "Turtle Samurai";
+	private Thread thread;
+	private boolean running = false;
 	
-	GLabel exitGame = new GLabel("You Quit", 200, 300);
+	private PlayerHUD playerHud;
 	
-	//public void run() {
-	//	GLabel exitGame = new GLabel("You Quit", 200, 300);
+	public Game() {
+		new Window(Width, Height, title, this); 
 		
-		
-		
-		
-		
-	//}
-
-
-
-	public void startGame(){
+		playerHud = new PlayerHUD();
+		}
+	
+	
+	public synchronized void start() {
+		thread  = new Thread(this);
+		thread.start();
 		running = true;
-		playerInput = new Scanner(System.in);
-		System.out.println("Would you like to play?");
-		int playerChoice = 0;
-		
-		do {
-			try {
-				System.out.println("Press 1 for yes, or 2 for no)");
-				playerChoice = playerInput.nextInt();
-			}
-			catch (Exception e){
-				System.out.println("That is not an option. Please select 1 to play or 2 to exit.");
-				playerInput = new Scanner(System.in);
-				
-			}
-		} while(playerChoice <1 || playerChoice >2 );{
-			if(playerChoice ==1)
-				System.out.println("play game");
-			//need to add the level background and characters here
+	}
+	
+	public synchronized void stop() {
+		try {
+			thread.join();
+			running = false;
+		}catch(Exception e){
+			e.printStackTrace();
 			
-				else if(playerChoice ==2) {
-			System.out.println("you quit");
-			
-			//need to add the exit game image here
 		}
-		}
-	
-	}
 		
-	public void pauseGame() {
-		pause = !pause;
-		
-		if(pause) {
-			System.out.println("Game paused");
-		}
-	}
-	
-	public void keyPressed(KeyEvent e) {
-		int keycode = e.getKeyCode();
-		
-		switch(keycode) {
-		case KeyEvent.VK_P -> pauseGame();
-		
-		}
-	
 	}
 	
 	
-	public static void main(String[] args) throws IOException {
-		new Game().startGame();
+	public void run() {
+		long lastTime = System.nanoTime();
+	double amountOfTicks = 60.0;
+	double ns = 1000000000 / amountOfTicks;
+	double delta = 0;
+	long timer = System.currentTimeMillis();
+	int frames = 0;
+	while(running) {
+		long now = System.nanoTime();
+		delta += (now-lastTime)/ns;
+		lastTime = now;
+		while(delta >= 1) {
+			tick();
+			delta--;
+		}
+		if(running) {
+			render();
+		frames++;
+		}
+		if(System.currentTimeMillis() - timer > 1000) {
+			timer += 1000;
+			System.out.println("FPS: " + frames);
+			frames = 0;
+			}
+		
+		}
+	stop();
+	}
+	
+	private void tick(){
+		playerHud.tick();
+		
+		
+	}
+	
+	private void render() {
+	BufferStrategy bs = this.getBufferStrategy();
+	if(bs == null) {
+		this.createBufferStrategy(3);
+	return;}
+	
+	
+	Graphics g = bs.getDrawGraphics();
+	g.setColor(Color.green);
+	g.fillRect(0, 0, Width, Height);
+	playerHud.render(g);
+	g.dispose();
+	bs.show();
+	}
+	
+	//	public void startGame(){
+		
+	//	playerHUD = new PlayerHUD();
+	
+	
+	public static void main(String[] args) {
+		new Game();
 		
 		
 	}

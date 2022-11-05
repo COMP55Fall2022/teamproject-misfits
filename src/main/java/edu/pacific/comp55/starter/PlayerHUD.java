@@ -1,10 +1,25 @@
 package edu.pacific.comp55.starter;
 
+import java.awt.Color;
+import java.awt.Color.*;
+import java.awt.Graphics;
+
 public class PlayerHUD {
 	//HealthBar: GImage
 	//- Playericon: GImage
 	//- BarParticle: GImage
 	//-StatusEffect: GImage
+	public static int HEALTH = 100;
+	
+	public void tick(){
+		
+	}
+	
+	public void render(Graphics g) {
+		g.setColor(Color.gray);
+		g.fillRect(15,15,200,32);
+		
+	}
 	
 	
 	
