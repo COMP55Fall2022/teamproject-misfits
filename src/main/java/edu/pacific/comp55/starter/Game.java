@@ -1,9 +1,11 @@
 package edu.pacific.comp55.starter;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferStrategy;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Handler;
 
 import acm.graphics.*;
 import acm.program.*;
@@ -21,13 +23,33 @@ public class Game extends Canvas implements Runnable{
 	private Thread thread;
 	private boolean running = false;
 	
+	private Hander handler;
+	
 	private PlayerHUD playerHud;
+	private StartMenu menu;
+	
+	public enum state{
+		Menu,
+		Game
+	};
+	
+	public state gameState = state.Menu;
 	
 	public Game() {
-		new Window(Width, Height, title, this); 
+		handler = new Hander();
+		menu = new StartMenu(this, handler);
 		
+		this.addMouseListener(menu);
+		
+		new Window(Width, Height, title, this); 
+				
+		//testing for now to add a player object to screen to i can test my menu screen
 		playerHud = new PlayerHUD();
-		}
+		
+		if(gameState == state.Game) {
+			
+		handler.addObject(new PlayerObject(200, 200,ID.playerID,handler));
+		}}
 	
 	
 	public synchronized void start() {
@@ -82,22 +104,39 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	private void tick(){
-		playerHud.tick();
+		handler.tick();
+		
+		if(gameState == state.Game) {
+			playerHud.tick();
+		}else if(gameState == state.Menu)
+			menu.tick();
+		}
 		
 		
-	}
+		
+	
 	
 	private void render() {
+		
 	BufferStrategy bs = this.getBufferStrategy();
 	if(bs == null) {
 		this.createBufferStrategy(3);
 	return;}
 	
-	
 	Graphics g = bs.getDrawGraphics();
-	g.setColor(Color.yellow);
+	g.setColor(Color.blue);
 	g.fillRect(0, 0, Width, Height);
-	playerHud.render(g);
+	
+	
+	handler.render(g);
+	
+	if(gameState == state.Game) 
+	{
+		playerHud.render(g);
+	}else if(gameState == state.Menu)
+		menu.render(g);
+	
+
 	g.dispose();
 	bs.show();
 	}
