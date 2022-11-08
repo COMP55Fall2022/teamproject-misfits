@@ -1,6 +1,6 @@
 package edu.pacific.comp55.starter;
 
-public enum ID {
+public enum ID {//creates ID for enemies or players
 	playerID(),
 	enemyID();
 }

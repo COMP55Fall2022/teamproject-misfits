@@ -13,7 +13,7 @@ public class StartMenu extends MouseAdapter{
 	Game game;
 	Hander handler;
 	
-	public StartMenu(Game game, Hander handler) {
+	public StartMenu(Game game, Hander handler) {//creates start menu
 		this.game = game;
 		this.handler = handler;
 	}
@@ -48,7 +48,7 @@ public class StartMenu extends MouseAdapter{
 		
 	}
 	
-	public void render(Graphics g) {
+	public void render(Graphics g) { //adding graphics to our menu
 		Font menufont = new Font("Arial",1,50);
 		g.setFont(menufont);
 		g.setColor(Color.black);

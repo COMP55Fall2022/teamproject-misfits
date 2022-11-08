@@ -33,7 +33,7 @@ public class Game extends Canvas implements Runnable{
 		Game
 	};
 	
-	public state gameState = state.Menu;
+	public state gameState = state.Menu; //menu state
 	
 	public Game() {
 		handler = new Hander();
@@ -41,30 +41,30 @@ public class Game extends Canvas implements Runnable{
 		
 		this.addMouseListener(menu);
 		
-		new Window(Width, Height, title, this); 
+		new Window(Width, Height, title, this); //creates game window
 				
 		//testing for now to add a player object to screen to i can test my menu screen
 		playerHud = new PlayerHUD();
 		
-		if(gameState == state.Game) {
+		if(gameState == state.Game) {//checks if we are in the game state
 			
 		handler.addObject(new PlayerObject(200, 200,ID.playerID,handler));
 		}}
 	
 	
-	public synchronized void start() {
+	public synchronized void start() {//creating thread to start in synchronized fashion
 		thread  = new Thread(this);
 		thread.start();
 		running = true;
 	}
 	
-	public static int clamp(int val, int min, int max ) {
+	public static int clamp(int val, int min, int max ) {//used to create boundaries ie. healthbar set to stop at 0 and not decline beyond that
 		return Math.max(min, Math.min(max,val));
 	}
 	
 	public synchronized void stop() {
 		try {
-			thread.join();
+			thread.join(); //stops thread
 			running = false;
 		}catch(Exception e){
 			e.printStackTrace();
@@ -74,7 +74,8 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	
-	public void run() {
+	public void run() {//game loop 
+		
 		long lastTime = System.nanoTime();
 	double amountOfTicks = 60.0;
 	double ns = 1000000000 / amountOfTicks;
@@ -116,11 +117,11 @@ public class Game extends Canvas implements Runnable{
 		
 	
 	
-	private void render() {
+	private void render() {//used to continuously display graphics on the screen
 		
 	BufferStrategy bs = this.getBufferStrategy();
 	if(bs == null) {
-		this.createBufferStrategy(3);
+		this.createBufferStrategy(3);//creating 3 buffers
 	return;}
 	
 	Graphics g = bs.getDrawGraphics();

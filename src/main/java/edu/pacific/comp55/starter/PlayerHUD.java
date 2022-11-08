@@ -8,7 +8,7 @@ import acm.graphics.GImage;
 
 import java.awt.Graphics;
 
-public class PlayerHUD {
+public class PlayerHUD {//player healthbar
 	
 	//- Playericon: GImage
 	//- BarParticle: GImage

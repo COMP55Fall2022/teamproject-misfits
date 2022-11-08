@@ -21,7 +21,7 @@ public class PlayerObject extends Objects {
 	
 	public void render(Graphics g) {
 		g.setColor(Color.orange);
-		g.fillRect(x,y, 40, 40);
+		g.fillOval(x,y, 40, 40);
 		
 	}
 	

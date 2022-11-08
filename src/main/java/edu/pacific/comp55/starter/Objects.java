@@ -2,7 +2,7 @@ package edu.pacific.comp55.starter;
 
 import java.awt.Graphics;
 
-public abstract class Objects {
+public abstract class Objects {//used to create objects
 
 	protected int x,y;
 	protected ID id;
