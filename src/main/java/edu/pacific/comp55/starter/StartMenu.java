@@ -44,11 +44,11 @@ public class StartMenu extends MouseAdapter{
 			}else return false;
 		}
 	
-	public void tick() {
+	public void tick() {//updates variables
 		
 	}
 	
-	public void render(Graphics g) { //adding graphics to our menu
+	public void render(Graphics g) { //updates graphics
 		Font menufont = new Font("Arial",1,50);
 		g.setFont(menufont);
 		g.setColor(Color.black);

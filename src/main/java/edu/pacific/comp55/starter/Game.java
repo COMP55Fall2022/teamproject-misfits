@@ -17,7 +17,7 @@ import java.awt.Canvas;
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
 	
-	public static final int Width = 640, Height = Width/12*9;
+	public static final int Width = 640, Height = 480;
 
 	String title = "Turtle Samurai";
 	private Thread thread;

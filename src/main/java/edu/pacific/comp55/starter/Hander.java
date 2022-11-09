@@ -8,7 +8,7 @@ public class Hander {//created handler for updating our objects in order to rend
 	LinkedList<Objects> object = new LinkedList<Objects>();//used to add objects in a linked list
 	
 	public void tick() {
-		for(int i=0; i< object.size();i++) {
+		for(int i=0; i< object.size();i++) {//updates variables
 		
 			Objects tempObject = object.get(i);
 			
@@ -17,7 +17,7 @@ public class Hander {//created handler for updating our objects in order to rend
 	}
 	
 	public void render(Graphics g) {
-		for(int i=0; i< object.size();i++) { //used to iterate through objects and render them
+		for(int i=0; i< object.size();i++) { //updates graphics
 			
 			Objects tempObject = object.get(i);
 			
@@ -25,11 +25,11 @@ public class Hander {//created handler for updating our objects in order to rend
 		}
 	
 	}
-	public void addObject(Objects object) {
+	public void addObject(Objects object) {//add objects to list
 		this.object.add(object);
 	}
 	
-	public void removeObject(Objects object) {
+	public void removeObject(Objects object) {//remove objects from list
 		this.object.remove(object);
 	}
 	
