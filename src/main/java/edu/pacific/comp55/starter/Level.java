@@ -27,15 +27,32 @@ public class Level implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	public void setNumberOfEnemies(int N, int R) {
+		this.enemiesKilled = N;
+		this.enemiesRemaining = R;
+	}
+	
+	public void getNumberOfEnemies() {
 		
 	}
 	
 	public void attack() {
+		attack.setInitialDelay(0);
+		attack.start();
+		
 		
 	}
 	
 	public void addAnEnemy() {
+		addEnemy.setInitialDelay(2000);
+		addEnemy.start();
+		
+		enemiesRemaining--;
+		enemiesKilled++;
 		
 	}
 	
@@ -48,7 +65,7 @@ public class Level implements ActionListener {
 	}
 	
 	public void populateEnemyArray() {
-		
+		int[] enemyArray;
 	}
 	
 	public void clearEnemyArray() {

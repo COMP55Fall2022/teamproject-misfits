@@ -2,33 +2,27 @@ package edu.pacific.comp55.starter;
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
 
-public class Popups extends GraphicsProgram{
+public abstract class Popups extends GraphicsProgram{
 	
 	public void drawLossScreen() {
-		//GImage image = new GImage();
-		//add(image);
+		//GImage lossScreen = new GImage();
+		//add(LossScreen);
 	}
 	
 	public void drawWinScreen() {
-		//GImage image = new GImage();
-		//add(image);
+		//GImage winScreen = new GImage();
+		//add(WinScreen);
 	}
 	
 	public void drawBeginningTitle() {
-		//GImage image = new GImage();
-		//add(image);
+		//GImage beginningTitle = new GImage();
+		//add(beginningTitle);
 	}
 	
 	public void drawSummaryScreen() {
-		
+		//GImage summaryScreen = new GImage();
+		//add(summaryScreen);
 	}
-
-	@Override
-	public void run() {
-
-		
-	}
-	
 	
 	
 }

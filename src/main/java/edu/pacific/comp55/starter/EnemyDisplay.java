@@ -1,13 +1,16 @@
 package edu.pacific.comp55.starter;
 import acm.program.GraphicsProgram;
+
+import java.awt.Color;
+
 import acm.graphics.*;
 
 public abstract class EnemyDisplay extends GraphicsProgram{
 	
-	
 	public void drawHUD() {
 		//GImage HealthBar = new GImage();
 		//add(HealthBar);
+		
 		
 		//GImage EnemyIcon = new GImage();
 		//add(EnemyIcon);
