@@ -8,21 +8,16 @@ public class PlayerObject extends Objects {
 
 	public PlayerObject(int x, int y, ID id,Hander handler) {
 		super(x, y, id);
-		
-	
 	}
 
 	
 	public void tick() {
 		// TODO Auto-generated method stub
-		
 	}
 
-	
 	public void render(Graphics g) {
 		g.setColor(Color.orange);
 		g.fillOval(x,y, 40, 40);
-		
 	}
 	
 	
