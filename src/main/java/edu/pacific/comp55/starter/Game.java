@@ -476,23 +476,18 @@ public class Game extends Canvas implements Runnable{
 			menu.tick();
 		}
 		
-		
-		
-	
 	
 	private void render() {//used to continuously display graphics on the screen
 		
 	BufferStrategy bs = this.getBufferStrategy();
 	if(bs == null) {
 		this.createBufferStrategy(3);//creating 3 buffers
-	return;}
+		return;}
 	
 	Graphics g = bs.getDrawGraphics();
-	g.setColor(Color.blue);
-	g.fillRect(0, 0, Width, Height);
-	
-	
-	handler.render(g);
+		g.setColor(Color.blue);
+		g.fillRect(0, 0, Width, Height);
+		handler.render(g);
 	
 	if(gameState == state.Game) 
 	{
@@ -500,21 +495,17 @@ public class Game extends Canvas implements Runnable{
 	}else if(gameState == state.Menu || gameState == state.Help)
 		menu.render(g);
 	
-
 	g.dispose();
 	bs.show();
 	}
 	
 	public void startGame(){
-		
 		playerHud = new PlayerHUD();
 	}
 	
 	public static void main(String[] args) {
 		new Game();
 		
-		
 	}
-
 
 }
