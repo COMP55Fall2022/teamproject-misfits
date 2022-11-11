@@ -22,7 +22,7 @@ public class StartMenu extends MouseAdapter{
 		int xX = e.getX();
 		int yY = e.getY();
 		
-		if(mouseHover(xX, yY, 235, 150,175,64)) {
+		if(mouseHover(xX, yY, 235, 150,175,64)) { 
 			game.gameState = state.Game;
 			handler.addObject(new PlayerObject(200, 200,ID.playerID,handler));
 			

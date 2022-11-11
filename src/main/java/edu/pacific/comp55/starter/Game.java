@@ -13,6 +13,367 @@ import java.awt.*;
 import acm.util.*;
 import java.awt.Canvas;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferStrategy;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Handler;
+
+import acm.graphics.*;
+import acm.program.*;
+import java.awt.*;
+import acm.util.*;
+import java.awt.Canvas;
+
 
 public class Game extends Canvas implements Runnable{
 	private static final long serialVersionUID = 1L;
@@ -43,11 +404,11 @@ public class Game extends Canvas implements Runnable{
 		
 		new Window(Width, Height, title, this); //creates game window
 				
-		//testing for now to add a player object to screen to i can test my menu screen
+		//adding player HUD to game screen
 		playerHud = new PlayerHUD();
 		
 		if(gameState == state.Game) {//checks if we are in the game state
-			
+			//testing adding player object if in game state
 		handler.addObject(new PlayerObject(200, 200,ID.playerID,handler));
 		}}
 	

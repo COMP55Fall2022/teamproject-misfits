@@ -11,12 +11,12 @@ import java.awt.Graphics;
 public class PlayerHUD {//player healthbar
 	
 	//- Playericon: GImage
-	//- BarParticle: GImage
+	
 	//-StatusEffect: GImage
 	public static int HEALTH = 100;
 	
 	public void tick(){
-	//test code
+	//test code to make sure my health bar changes in size
 		HEALTH --;
 		//stops health from declining past its borders
 		HEALTH = Game.clamp(HEALTH,0,100);
