@@ -97,12 +97,14 @@ public class StartMenu extends MouseAdapter{
 	}else if(game.gameState == state.Help) {
 		Font hFont = new Font("arial", 2, 30);
 		Font BFont = new Font("arial", 2, 30);
+		
+		g.setFont(hFont);
+		g.drawString("How to play the game." ,150, 50);
+		
 		g.setFont(hFont);
 		g.setColor(Color.white);
 		g.drawString("How to move: ", 50, 100);
 		
-		g.setFont(hFont);
-		g.drawString("How to play the game." ,150, 50);
 		
 		g.setFont(BFont);
 		g.drawRect(235, 350, 175, 64);
