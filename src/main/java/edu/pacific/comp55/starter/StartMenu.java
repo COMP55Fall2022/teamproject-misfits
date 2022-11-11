@@ -42,11 +42,6 @@ public class StartMenu extends MouseAdapter{
 				}
 			}}
 			
-
-		
-		
-	
-	
 	public void mouseReleased(MouseEvent e) {
 		
 	}
