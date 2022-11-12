@@ -13,7 +13,7 @@ public class StartMenu extends Display {
 	public StartMenu(Game app) {
 		super();
 		program = app;
-		rect = new GButton("Next", 200, 200, 200, 200);
+		rect = new GButton("Play Game", 200, 200, 200, 200);
 		rect.setFillColor(Color.RED);
 		
 	}
