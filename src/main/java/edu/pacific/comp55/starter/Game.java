@@ -5,7 +5,7 @@ public class Game extends Display {
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3", "somethinlikethis.mp3" };
 
-	private SomePane somePane;
+	private HUD somePane;
 	private Help gameHelp;
 	private StartMenu menu;
 	private int count;
@@ -17,7 +17,7 @@ public class Game extends Display {
 
 	public void run() {
 		System.out.println("Hello, world!");
-		somePane = new SomePane(this);
+		somePane = new HUD(this);
 		menu = new StartMenu(this);
 		gameHelp = new Help(this);
 		setupInteractions();
