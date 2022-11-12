@@ -6,8 +6,8 @@ import java.util.logging.Handler;
 
 public class PlayerObject extends Objects {
 
-	public PlayerObject(int x, int y, ID id,Hander handler) {
-		super(x, y, id);
+	public PlayerObject(int x, int y, ID id,Hander handler, int speedX, int speedY) {
+		super(x, y, id, speedX, speedY);
 	}
 
 	
@@ -18,6 +18,8 @@ public class PlayerObject extends Objects {
 	public void render(Graphics g) {
 		g.setColor(Color.orange);
 		g.fillOval(x,y, 40, 40);
+		
+		
 	}
 	
 	
