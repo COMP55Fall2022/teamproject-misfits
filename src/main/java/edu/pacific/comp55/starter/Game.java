@@ -11,6 +11,7 @@ public class Game extends Display {
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+		
 	}
 
 	public void run() {

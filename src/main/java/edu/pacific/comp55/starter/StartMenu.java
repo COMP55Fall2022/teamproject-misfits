@@ -1,6 +1,7 @@
 package edu.pacific.comp55.starter;
 
-import java.awt.Color;
+import java.awt.
+Color;
 import java.awt.event.MouseEvent;
 
 import acm.graphics.GObject;
@@ -8,32 +9,42 @@ import acm.graphics.GObject;
 public class StartMenu extends Display {
 	private Game program; // you will use program to get access to
 										// all of the GraphicsProgram calls
-	private GButton rect;
+	private GButton start;
+	private GButton exit;
+	
 	
 	public StartMenu(Game app) {
 		super();
 		program = app;
-		rect = new GButton("Play Game", 200, 200, 200, 200);
-		rect.setFillColor(Color.RED);
+		
+		start = new GButton("Start Game", 200, 400, 200, 100);
+		start.setFillColor(Color.GREEN);
+		exit = new GButton("Exit Game", 400,400,200,100);
+		exit.setFillColor(Color.GREEN);
+		
 		
 	}
 
 	@Override
 	public void showContents() {
 		
-		program.add(rect);
+		program.add(start);
+		program.add(exit);
 	}
 
 	@Override
 	public void hideContents() {
-		program.remove(rect);
+		program.remove(start);
+		program.remove(exit);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
-		if (obj == rect) {
+		if (obj == start) {
 			program.switchToSome();
+		}else if(obj == exit) {
+			System.exit(0);
 		}
 	}
 
