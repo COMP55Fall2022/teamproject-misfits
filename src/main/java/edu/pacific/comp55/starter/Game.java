@@ -15,7 +15,7 @@ public class Game extends Display {
 
 	public void run() {
 		System.out.println("Hello, world!");
-	//	somePane = new SomePane(this);
+		somePane = new SomePane(this);
 		menu = new StartMenu(this);
 		setupInteractions();
 		switchToMenu();
@@ -24,7 +24,7 @@ public class Game extends Display {
 	public void switchToMenu() {
 		playRandomSound();
 		count++;
-	//	switchToScreen(menu);
+		switchToScreen(menu);
 	}
 
 	public void switchToSome() {

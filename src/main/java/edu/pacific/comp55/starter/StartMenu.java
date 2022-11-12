@@ -15,6 +15,7 @@ public class StartMenu extends Display {
 		program = app;
 		rect = new GButton("Next", 200, 200, 200, 200);
 		rect.setFillColor(Color.RED);
+		
 	}
 
 	@Override
@@ -32,7 +33,7 @@ public class StartMenu extends Display {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == rect) {
-			//program.switchToSome();
+			program.switchToSome();
 		}
 	}
 
