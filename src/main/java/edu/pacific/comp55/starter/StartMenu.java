@@ -11,18 +11,20 @@ public class StartMenu extends Display {
 										// all of the GraphicsProgram calls
 	private GButton start;
 	private GButton exit;
+	private GButton help;
 	
 	
 	public StartMenu(Game app) {
 		super();
 		program = app;
 		
-		start = new GButton("Start Game", 200, 400, 200, 100);
+		start = new GButton("Start Game", 300, 200, 200, 50);
 		start.setFillColor(Color.GREEN);
-		exit = new GButton("Exit Game", 400,400,200,100);
+		exit = new GButton("Exit Game", 300,300,200,50);
 		exit.setFillColor(Color.GREEN);
-		
-		
+		help = new GButton("Help",300,400,200,50);
+		help.setFillColor(Color.red);
+				
 	}
 
 	@Override
@@ -30,12 +32,14 @@ public class StartMenu extends Display {
 		
 		program.add(start);
 		program.add(exit);
+		program.add(help);
 	}
 
 	@Override
 	public void hideContents() {
 		program.remove(start);
 		program.remove(exit);
+		program.remove(help);
 	}
 
 	@Override
@@ -45,6 +49,8 @@ public class StartMenu extends Display {
 			program.switchToSome();
 		}else if(obj == exit) {
 			System.exit(0);
+		}else if(obj == help) {
+			program.switchToHelp();
 		}
 	}
 

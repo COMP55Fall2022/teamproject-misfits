@@ -6,6 +6,7 @@ public class Game extends Display {
 	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3", "somethinlikethis.mp3" };
 
 	private SomePane somePane;
+	private Help gameHelp;
 	private StartMenu menu;
 	private int count;
 
@@ -18,6 +19,7 @@ public class Game extends Display {
 		System.out.println("Hello, world!");
 		somePane = new SomePane(this);
 		menu = new StartMenu(this);
+		gameHelp = new Help(this);
 		setupInteractions();
 		switchToMenu();
 	}
@@ -31,6 +33,10 @@ public class Game extends Display {
 	public void switchToSome() {
 		playRandomSound();
 		switchToScreen(somePane);
+	}
+	
+	public void switchToHelp() {
+		switchToScreen(gameHelp);
 	}
 
 	private void playRandomSound() {
