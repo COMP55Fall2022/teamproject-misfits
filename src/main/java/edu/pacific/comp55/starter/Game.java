@@ -40,10 +40,10 @@ public class Game extends Canvas implements Runnable{
 	public Game() {
 		handler = new Hander();
 		menu = new StartMenu(this, handler);
-		Entity entity = new Entity(5,5,5,5);
+		//entity = new Entity();
 		
 		this.addMouseListener(menu);
-		this.addKeyListener(entity);
+		//this.addKeyListener(Entity);
 		
 		new Window(Width, Height, title, this); //creates game window
 				
@@ -52,7 +52,7 @@ public class Game extends Canvas implements Runnable{
 		
 		if(gameState == state.Game) {//checks if we are in the game state
 			//testing adding player object if in game state
-		handler.addObject(new PlayerObject(200, 200,ID.playerID,handler, 1, 2));
+		handler.addObject(new PlayerObject(200, 200,ID.playerID,handler));
 	//	handler.addObject(new Entity(5,5,5,5);
 		new Entity(5,5,5,5).start();
 		}}

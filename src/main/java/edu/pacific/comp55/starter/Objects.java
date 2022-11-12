@@ -8,12 +8,10 @@ public abstract class Objects {//used to create objects
 	protected ID id;
 	protected int speedX,speedY;
 	
-	public Objects(int x,int y, ID id, int speedX, int speedY) {
+	public Objects(int x,int y, ID id) {
 	this.x =x;
 	this.y=y;
 	this.id=id;
-	this.speedX =speedX;
-	this.speedY = speedY;
 	}
 	
 	public abstract void tick();

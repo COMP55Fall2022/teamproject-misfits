@@ -25,7 +25,7 @@ public class StartMenu extends MouseAdapter{
 		if(game.gameState == state.Menu) {
 			if(mouseHover(xX, yY, 235, 150,175,64)) { //play box
 				game.gameState = state.Game;
-				handler.addObject(new PlayerObject(200, 200,ID.playerID,handler, 1, 2));
+				handler.addObject(new PlayerObject(200, 200,ID.playerID,handler));
 			}			
 						
 			if(mouseHover(xX, yY, 235, 250,175,64)) { //quit box
