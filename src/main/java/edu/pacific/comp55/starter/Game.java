@@ -1,4 +1,9 @@
 package edu.pacific.comp55.starter;
+
+import java.awt.Color;
+
+import acm.graphics.GRect;
+
 public class Game extends Display {
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
@@ -9,6 +14,7 @@ public class Game extends Display {
 	private Help gameHelp;
 	private StartMenu menu;
 	private int count;
+	private GRect backG;
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -17,6 +23,11 @@ public class Game extends Display {
 
 	public void run() {
 		System.out.println("Hello, world!");
+		backG = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
+		backG.setColor(Color.black);
+		backG.setFilled(true);
+		add(backG);
+		
 		somePane = new HUD(this);
 		menu = new StartMenu(this);
 		gameHelp = new Help(this);
