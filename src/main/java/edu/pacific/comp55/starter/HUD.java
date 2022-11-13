@@ -15,40 +15,41 @@ public class HUD extends Display {
 	  private GParagraph para;
 	  private GRect rect;
 	  private GRect healthB;
-	  
+	  public static int HEALTH = 200;
+
 
 	  public HUD(Game app) {
 		  super();
 		  hudProgram = app;
+		  HEALTH -=10;//TEST TO SHOW 2 DIFFERENT BARS
 		  
 		  rect = new GRect(200,25);
 		  rect.setColor(Color.red);
 		  rect.setFilled(true);
 		  
-		  healthB = new GRect(190,25);
+		  
+		  healthB = new GRect(HEALTH,25);
+		  
 		  healthB.setColor(Color.green);
 		  healthB.setFilled(true);
-		  
-		  
-
 
 	  }
 
 	  @Override
 	  public void showContents() {
 		  hudProgram.add(rect);
+		  
 		  hudProgram.add(healthB);
+		  
+		  
 	  }
 
 	  @Override
 	  public void hideContents() {
+		  
 	  }
 
 
-		/*
-		 * private void healthBar(){ rect = new GRect(10,100); rect.setColor(Color.red);
-		 * rect.setFilled(true); add(rect); }
-		 */	// TODO Auto-generated method stub
 
 	@Override
 	public void run() {
