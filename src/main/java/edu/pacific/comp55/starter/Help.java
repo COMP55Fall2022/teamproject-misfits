@@ -13,13 +13,12 @@ public class Help extends Display {
 	 private Game helpProgram; // you will use program to get access to 
 	  //all of the GraphicsProgram calls
 	  
-	  private GImage img; 
+	   
 	  private GParagraph para; 
 	  private GButton goBack;
 	  
 	 public Help(Game app) { 
 		 this.helpProgram = app; 
-	//	 img = new GImage("robot head.jpg", 100, 100);
 		 para = new GParagraph("Welcome to the help Menu", 250, 100);
 		 para.setFont("Arial-24"); 
 

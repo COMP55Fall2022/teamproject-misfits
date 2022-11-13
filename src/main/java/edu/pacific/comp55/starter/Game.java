@@ -8,7 +8,7 @@ public class Game extends Display {
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	public static final String MUSIC_FOLDER = "sounds";
-	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3", "somethinlikethis.mp3" };
+	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3" };
 
 	private HUD somePane;
 	private Help gameHelp;
