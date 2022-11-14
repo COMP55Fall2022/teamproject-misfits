@@ -37,4 +37,25 @@ public class Player extends Entity {
 		}
 	}
 	
+	public void takeDamage(int dmg) {
+		health -=dmg;
+		System.out.println(health);
+	}
+	
+	public void attack() {
+		
+	}
+	
+	public void parry() {
+		
+	}
+	
+	public void jump(int jumpPower) {
+		
+	}
+	
+
+public static void main(String[] args) {
+	
+}
 }
