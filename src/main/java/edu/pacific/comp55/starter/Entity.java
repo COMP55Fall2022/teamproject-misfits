@@ -22,12 +22,7 @@ public class Entity extends GraphicsProgram implements ActionListener{
 	
 	GImage playerModel = new GImage("media/idle_Onigiri.png",250,250);
 
-	public void init() {
-		setSize(1920,1080);
-		requestFocus();
-		addKeyListeners();
-
-	}
+	
 	
 	
 	
@@ -82,13 +77,6 @@ public class Entity extends GraphicsProgram implements ActionListener{
 	}
 	*/
 	
-	
-
-
-	public static void main(String[] args) {
-		new Entity(5,5,5,5).start();
-		
-	}
 
 }
 
