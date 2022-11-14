@@ -19,8 +19,8 @@ public class Entity extends GraphicsProgram implements ActionListener{
 	boolean isParrying=false;
 	boolean isAttacking=false;
 	boolean attackDebounce=false;
-	
 	GImage playerModel = new GImage("media/idle_Onigiri.png",250,250);
+	//GImage playerModel = new GImage("media/idle_Onigiri.png",250,250);
 
 	
 	
@@ -28,12 +28,13 @@ public class Entity extends GraphicsProgram implements ActionListener{
 	
 	//ENTITY CLASS CONSTRUCTOR
 
-	public Entity(int HP,int AD,int MS,int JP) {
+	public Entity(int HP,int AD,int MS,int JP,String playerModel) {
 		//setting up the entity's attributes
 		health = HP;
 		attackDamage = AD;
 		moveSpeed = MS;
 		jumpPower = JP;
+		this.playerModel.setImage(playerModel);
 	}
 	
 	public void run() {
