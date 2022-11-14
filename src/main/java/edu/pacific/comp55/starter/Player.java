@@ -4,8 +4,8 @@ import java.awt.event.KeyEvent;
 
 public class Player extends Entity {
 
-	public Player(int HP, int AD, int MS, int JP) {
-		super(HP, AD, MS, JP);
+	public Player(int HP, int AD, int MS, int JP, String playerModel) {
+		super(HP, AD, MS, JP,playerModel);
 		// TODO Auto-generated constructor stub
 	}
 	
