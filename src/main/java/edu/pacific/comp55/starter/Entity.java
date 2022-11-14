@@ -40,43 +40,6 @@ public class Entity extends GraphicsProgram implements ActionListener{
 		playerModel.setSize(300,300);
 		add(playerModel);
 	}
-	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		System.out.println("keyPressed");
-		System.out.println(e.getKeyCode());
-		int keyCode = e.getKeyCode();
-		switch(keyCode) {
-
-		case KeyEvent.VK_LEFT:
-			if ((playerModel.getX()>=-100)){
-			playerModel.move(-10, 0);
-			}
-			else {
-				playerModel.move(10, 0);
-			}
-			break;
-		
-		case KeyEvent.VK_RIGHT:
-			if ((playerModel.getX()<=1350)){
-				playerModel.move(10, 0);
-				}
-				else {
-					playerModel.move(-10, 0);
-				}
-			break;
-	
-		}
-	}
-	
-	/*@Override
-	public void keyReleased(KeyEvent e) {
-		if(curScreen != null) {
-			curScreen.keyReleased(e);
-		}
-	}
-	*/
-	
 
 }
 
