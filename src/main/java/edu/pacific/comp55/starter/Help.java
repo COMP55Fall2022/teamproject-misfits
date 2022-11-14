@@ -19,20 +19,21 @@ public class Help extends Display {
 	  
 	 public Help(Game app) { 
 		 this.helpProgram = app; 
-		 para = new GParagraph("Welcome to the help Menu", 250, 100);
+		 para = new GParagraph("Welcome to the help Menu", 260, 100);
 		 para.setFont("Arial-24"); 
+		 para.setColor(Color.red);
 
 		 goBack = new GButton("Return to Menu", 300, 200, 200, 50);
 		 goBack.setFillColor(Color.yellow);
 		 }
 	  
 	  @Override public void showContents() { 
-		  helpProgram.add(goBack); 
-		  helpProgram.add(para); }
+		  helpProgram.add(para); 
+		  helpProgram.add(goBack); }
 	  
 	  @Override public void hideContents() { 
-		  helpProgram.remove(goBack);
-		  helpProgram.remove(para); }
+		  helpProgram.remove(para);
+		  helpProgram.remove(goBack); }
 	  
 	  @Override public void mousePressed(MouseEvent e) {
 	  GObject obj = helpProgram.getElementAt(e.getX(), e.getY());
