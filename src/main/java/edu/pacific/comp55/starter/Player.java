@@ -44,6 +44,7 @@ public class Player extends GImage implements ActionListener {
 @Override
 public void actionPerformed(ActionEvent e) {
 	System.out.println("Action performed");
+	
 }
 
 }
