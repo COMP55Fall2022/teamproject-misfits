@@ -87,7 +87,7 @@ public abstract class Level extends Display{
 			this.attackDamage = 10;
 			break;
 		}
-		
+	//hh	
 	}
 	
 	public void addAnEnemy() {
