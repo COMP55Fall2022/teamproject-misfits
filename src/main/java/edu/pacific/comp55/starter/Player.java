@@ -1,40 +1,23 @@
 package edu.pacific.comp55.starter;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import acm.graphics.*;
 
-public class Player extends Entity {
+public class Player extends GImage implements ActionListener {
+	
+	int health;
+	int moveSpeed;
+	int jumpPower;
+	int attackDamage;
+	boolean isParrying = false;
+	boolean isAttacking = false;
+	
 
-	public Player(int HP, int AD, int MS, int JP, String playerModel) {
-		super(HP, AD, MS, JP,playerModel);
+	
+	public Player(String playerModel, double width, double height) {
+		super(playerModel, width, height);
 		// TODO Auto-generated constructor stub
-	}
-	
-	@Override
-	public void keyPressed(KeyEvent e) {
-		System.out.println("keyPressed");
-		System.out.println(e.getKeyCode());
-		int keyCode = e.getKeyCode();
-		switch(keyCode) {
-
-		case KeyEvent.VK_LEFT:
-			if ((playerModel.getX()>=-100)){
-			playerModel.move(-10, 0);
-			}
-			else {
-				playerModel.move(10, 0);
-			}
-			break;
-		
-		case KeyEvent.VK_RIGHT:
-			if ((playerModel.getX()<=1350)){
-				playerModel.move(10, 0);
-				}
-				else {
-					playerModel.move(-10, 0);
-				}
-			break;
-	
-		}
 	}
 	
 	public void takeDamage(int dmg) {
@@ -53,9 +36,10 @@ public class Player extends Entity {
 	public void jump(int jumpPower) {
 		
 	}
-	
 
-public static void main(String[] args) {
-	
+@Override
+public void actionPerformed(ActionEvent e) {
+	System.out.println("Action performed");
 }
+
 }
