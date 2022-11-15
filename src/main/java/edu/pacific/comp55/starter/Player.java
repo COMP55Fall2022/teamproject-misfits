@@ -15,9 +15,13 @@ public class Player extends GImage implements ActionListener {
 	
 
 	
-	public Player(String playerModel, double width, double height) {
+	public Player(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower) {
 		super(playerModel, width, height);
 		// TODO Auto-generated constructor stub
+		this.health = health;
+		this.attackDamage = attackDamage;
+		this.jumpPower = jumpPower;
+		this.moveSpeed = moveSpeed;
 	}
 	
 	public void takeDamage(int dmg) {
