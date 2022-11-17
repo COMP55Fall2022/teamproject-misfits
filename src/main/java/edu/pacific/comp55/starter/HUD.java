@@ -24,12 +24,13 @@ public class HUD extends Display {
 		  HEALTH -=10;//TEST TO SHOW 2 DIFFERENT BARS
 		  
 		  rect = new GRect(200,25);
+		  rect.setLocation(10, 50);
 		  rect.setColor(Color.red);
 		  rect.setFilled(true);
 		  
 		  
-		  healthB = new GRect(HEALTH,25);
-		  
+		  healthB = new GRect(190,25);
+		  healthB.setLocation(10, 50);
 		  healthB.setColor(Color.green);
 		  healthB.setFilled(true);
 

@@ -2,6 +2,7 @@ package edu.pacific.comp55.starter;
 
 import java.awt.Color;
 
+import acm.graphics.GCanvas;
 import acm.graphics.GRect;
 
 public class Game extends Display {
@@ -11,10 +12,13 @@ public class Game extends Display {
 	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3" };
 
 	private HUD somePane;
+	private EnemyHUD enemyH;
 	private Help gameHelp;
 	private StartMenu menu;
 	private int count;
 	private GRect backG;
+	
+	
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -22,13 +26,14 @@ public class Game extends Display {
 	}
 
 	public void run() {
-		System.out.println("Hello, world!");
+		
 		backG = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
 		backG.setColor(Color.black);
 		backG.setFilled(true);
 		add(backG);
 		
 		somePane = new HUD(this);
+		enemyH = new EnemyHUD(this);
 		menu = new StartMenu(this);
 		gameHelp = new Help(this);
 		setupInteractions();
@@ -44,6 +49,8 @@ public class Game extends Display {
 	public void switchToSome() {
 		playRandomSound();
 		switchToScreen(somePane);
+		switchToScreen(enemyH);
+		
 	}
 	
 	public void switchToHelp() {
