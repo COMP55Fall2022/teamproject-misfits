@@ -21,7 +21,11 @@ public class EnemyHUD extends Display {
 	  public EnemyHUD(Game app) {
 		  super();
 		  ehudProgram = app;
-		  HEALTH -=10;//TEST TO SHOW 2 DIFFERENT BARS
+		  //TEST TO SHOW 2 DIFFERENT BARS
+		  
+		  HEALTH = EnemyHUD.clamp(HEALTH, 0, 200);
+		  HEALTH -= 70;
+	
 		  
 		  rect = new GRect(200,25);
 		  rect.setLocation(570, 50);
@@ -29,13 +33,19 @@ public class EnemyHUD extends Display {
 		  rect.setFilled(true);
 		  
 		  
-		  healthB = new GRect(190,25);
+		  healthB = new GRect(HEALTH,25);
 		  healthB.setLocation(570, 50);
 		  healthB.setColor(Color.blue);
 		  healthB.setFilled(true);
-
+		  
 	  }
 
+	  public static int clamp(int val, int min, int max ) {
+			return Math.max(min, Math.min(max,val));
+		}
+	  
+	  
+	  
 	  @Override
 	  public void showContents() {
 		  ehudProgram.add(rect);
