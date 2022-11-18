@@ -17,7 +17,7 @@ public class Game extends Display {
 	private StartMenu menu;
 	private int count;
 	private GRect backG;
-	private Player player;
+	//private Player player;
 	
 	
 
@@ -32,8 +32,8 @@ public class Game extends Display {
 		backG.setColor(Color.black);
 		backG.setFilled(true);
 		add(backG);
-		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
-		add(player);
+		//player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
+		//add(player);
 		somePane = new HUD(this);
 		enemyH = new EnemyHUD(this);
 		menu = new StartMenu(this);

@@ -11,7 +11,7 @@ import javax.swing.*;
 
 import acm.graphics.GObject;
 
-public abstract class Level extends Display{
+public class Level extends Display{
 	public int currentLevel;
 	public int enemiesKilled;
 	public int enemiesRemaining;
@@ -24,11 +24,12 @@ public abstract class Level extends Display{
 	Timer attack = new Timer(1000, this);
 	private GButton exitToMenu;
 	private Game pauseMenu;
+	private Player player;
 	
 	public void Pause(Game app) {
 		this.pauseMenu = app;
 		exitToMenu = new GButton("Return to Menu", 300, 200, 200, 50);
-		exitToMenu.setFillColor(Color.yellow);
+		exitToMenu.setFillColor(Color.red);
 		
 	}
 	@Override 
@@ -87,7 +88,6 @@ public abstract class Level extends Display{
 			this.attackDamage = 10;
 			break;
 		}
-	//hh	
 	}
 	
 	public void addAnEnemy() {
@@ -122,10 +122,14 @@ public abstract class Level extends Display{
 		//System.out.println(enemyArray[0]);
 	}
 	
-	public static void run(String[] args) {
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
+		add(player);
 		
 	}
-
+	
 	
 	
 }
