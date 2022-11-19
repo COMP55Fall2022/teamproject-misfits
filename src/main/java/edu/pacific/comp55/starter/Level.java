@@ -11,7 +11,7 @@ import javax.swing.*;
 
 import acm.graphics.GObject;
 
-public class Level extends Display{
+public class Level extends GraphicsPane implements ActionListener{
 	public int currentLevel;
 	public int enemiesKilled;
 	public int enemiesRemaining;
@@ -25,6 +25,13 @@ public class Level extends Display{
 	private GButton exitToMenu;
 	private Game pauseMenu;
 	private Player player;
+	private Game mainScreen;
+	
+	public Level(Game program) {
+		mainScreen = program;
+		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
+		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
+	}
 	
 	public void Pause(Game app) {
 		this.pauseMenu = app;
@@ -34,19 +41,21 @@ public class Level extends Display{
 	}
 	@Override 
 	public void showContents() { 
-		pauseMenu.add(exitToMenu); 
+		mainScreen.add(player);
+		mainScreen.add(exitToMenu); 
 	}
 	  
 	@Override 
 	public void hideContents() { 
-		pauseMenu.remove(exitToMenu); 
+		mainScreen.remove(player);
+		mainScreen.remove(exitToMenu); 
 	}
 	
 	@Override 
 	public void mousePressed(MouseEvent e) {
-		  GObject obj = pauseMenu.getElementAt(e.getX(), e.getY());
+		  GObject obj = mainScreen.getElementAt(e.getX(), e.getY());
 		  if (obj ==  exitToMenu) {
-			  pauseMenu.switchToMenu(); 
+			  mainScreen.switchToMenu(); 
 		  }
 	}
 	
@@ -121,15 +130,4 @@ public class Level extends Display{
 		Arrays.fill(enemyArray, null); //Clears enemy array/sets all elements in the array to null
 		//System.out.println(enemyArray[0]);
 	}
-	
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
-		add(player);
-		
-	}
-	
-	
-	
 }

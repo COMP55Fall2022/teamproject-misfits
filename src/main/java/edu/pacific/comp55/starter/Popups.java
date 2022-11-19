@@ -24,5 +24,4 @@ public abstract class Popups extends GraphicsProgram{
 		//add(summaryScreen);
 	}
 	
-	
 }

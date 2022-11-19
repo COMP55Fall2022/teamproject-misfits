@@ -5,7 +5,7 @@ import java.awt.Color;
 import acm.graphics.GCanvas;
 import acm.graphics.GRect;
 
-public class Game extends Display {
+public class Game extends GraphicsApplication {
 	public static final int WINDOW_WIDTH = 800;
 	public static final int WINDOW_HEIGHT = 600;
 	public static final String MUSIC_FOLDER = "sounds";
@@ -17,6 +17,7 @@ public class Game extends Display {
 	private StartMenu menu;
 	private int count;
 	private GRect backG;
+	private Level level;
 	//private Player player;
 	
 	
@@ -34,10 +35,11 @@ public class Game extends Display {
 		add(backG);
 		//player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
 		//add(player);
-		somePane = new HUD(this);
-		enemyH = new EnemyHUD(this);
+		//somePane = new HUD(this);
+		//enemyH = new EnemyHUD(this);
 		menu = new StartMenu(this);
 		gameHelp = new Help(this);
+		level = new Level(this);
 		setupInteractions();
 		switchToMenu();
 	}
@@ -48,10 +50,9 @@ public class Game extends Display {
 		switchToScreen(menu);
 	}
 
-	public void switchToSome() {
+	public void switchToLevel() {
 		playRandomSound();
-		switchToScreen(somePane);
-		switchToScreen(enemyH);
+		switchToScreen(level);
 		
 	}
 	

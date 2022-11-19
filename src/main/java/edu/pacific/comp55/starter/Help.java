@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import acm.graphics.GImage;
 import acm.graphics.GObject;
 
-public class Help extends Display {
+public class Help extends GraphicsPane {
 
 	 private Game helpProgram; // you will use program to get access to 
 	  //all of the GraphicsProgram calls
@@ -39,12 +39,6 @@ public class Help extends Display {
 	  GObject obj = helpProgram.getElementAt(e.getX(), e.getY());
 	  if (obj == goBack) {
 	  helpProgram.switchToMenu(); } }
-
-	  @Override
-		public void run() {
-			// TODO Auto-generated method stub
-			
-		}
 
 	 }
 

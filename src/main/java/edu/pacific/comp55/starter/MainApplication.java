@@ -27,7 +27,7 @@ public class MainApplication extends Display {
 	public void switchToMenu() {
 		playRandomSound();
 		count++;
-		switchToScreen(menu);
+		//switchToScreen(menu);
 	}
 
 	public void switchToSome() {
@@ -36,7 +36,7 @@ public class MainApplication extends Display {
 	}
 	
 	public void switchToHelp() {
-		switchToScreen(gameHelp);
+		//switchToScreen(gameHelp);
 	}
 
 	private void playRandomSound() {

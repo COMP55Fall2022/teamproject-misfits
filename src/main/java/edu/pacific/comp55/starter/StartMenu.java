@@ -6,7 +6,7 @@ import java.awt.event.MouseEvent;
 
 import acm.graphics.GObject;
 
-public class StartMenu extends Display {
+public class StartMenu extends GraphicsPane {
 	private Game program; // you will use program to get access to
 										// all of the GraphicsProgram calls
 	private GButton start;
@@ -46,17 +46,11 @@ public class StartMenu extends Display {
 	public void mousePressed(MouseEvent e) {
 		GObject obj = program.getElementAt(e.getX(), e.getY());
 		if (obj == start) {
-			program.switchToSome();
+			program.switchToLevel();
 		}else if(obj == exit) {
 			System.exit(0);
 		}else if(obj == help) {
 			program.switchToHelp();
 		}
-	}
-
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-		
 	}
 }
