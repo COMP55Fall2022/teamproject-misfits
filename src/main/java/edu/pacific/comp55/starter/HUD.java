@@ -14,18 +14,17 @@ public class HUD extends GRect {
 	  private GRect rect;
 	  private GRect healthB;
 	  public static int HEALTH = 200;
+	  public int clamp;
 	
 	  public HUD(double x, double y, double width, double height) {
 		super(x, y, width, height);
+		}
+	  public void clamp(int val, int min, int max) {
+		 		  
 		  
+		  clamp =  Math.max(min, Math.min(max,val));
 		  
-		  healthB = new GRect(190,25);
-		  healthB.setLocation(10, 50);
-		  healthB.setColor(Color.green);
-		  healthB.setFilled(true);
-
-		// TODO Auto-generated constructor stub
-	}
+	  }	  
 
 }
 	//all of the GraphicsProgram calls
