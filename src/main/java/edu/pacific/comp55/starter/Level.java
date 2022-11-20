@@ -29,7 +29,6 @@ public class Level extends GraphicsPane implements ActionListener{
 	private HUD playerHud;
 	private HUD healthB;
 	int health = 200;
-	private EnemyHUD decline;
 	
 	public Level(Game program) {
 		mainScreen = program;
