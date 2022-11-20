@@ -9,10 +9,6 @@ import acm.program.GraphicsProgram;
 
 public class HUD extends GRect {
 
-	  private GImage img; 
-	  private GParagraph para;
-	  private GRect rect;
-	  private GRect healthB;
 	  public static int HEALTH = 200;
 	  public int clamp;
 	
@@ -26,9 +22,7 @@ public class HUD extends GRect {
 		  
 	  }	  
 
-}
-	//all of the GraphicsProgram calls
-	  
+}	  
 
 
 	 

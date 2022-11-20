@@ -34,17 +34,14 @@ public class Level extends GraphicsPane implements ActionListener{
 	public Level(Game program) {
 		mainScreen = program;
 		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
-		playerHud = new HUD(20, 50, 200, 25);
+		playerHud = new HUD(20, 50, 200, 25); //creating health bar
 		playerHud.setFillColor(Color.RED);
 		playerHud.setFilled(true);
-		health -= 50;//declines current health
-		healthB = new HUD(20, 50, health, 25);
-		
-		healthB.clamp(0, 0, 100);
-	
+		health -= 50;//declines current health(green bar) THIS JUST TESTS THAT IT DECLINES. FUNCTIONALITY STILL NEEDED FOR WHEN BEING HIT.
+		healthB = new HUD(20, 50, health, 25);//creating current health bar(green bar)
+		healthB.clamp(0, 0, 100); // clamps health bar so it doesn't shift and instead shrinks	
 		healthB.setFillColor(Color.green);
 		healthB.setFilled(true);
-		
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
 	}
 	
