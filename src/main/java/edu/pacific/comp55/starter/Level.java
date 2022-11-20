@@ -26,13 +26,21 @@ public class Level extends GraphicsPane implements ActionListener{
 	private Game pauseMenu;
 	private Player player;
 	private Game mainScreen;
+	private HUD playerHud;
+	
+	
 	
 	public Level(Game program) {
 		mainScreen = program;
 		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
+		playerHud = new HUD(20, 50, 200, 25);
+		playerHud.setFillColor(Color.RED);
+		playerHud.setFilled(true);
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
 	}
 	
+	
+
 	public void Pause(Game app) {
 		this.pauseMenu = app;
 		exitToMenu = new GButton("Return to Menu", 300, 200, 200, 50);
@@ -43,6 +51,9 @@ public class Level extends GraphicsPane implements ActionListener{
 	public void showContents() { 
 		mainScreen.add(player);
 		mainScreen.add(exitToMenu); 
+		mainScreen.add(exitToMenu);
+		mainScreen.add(playerHud);
+		
 	}
 	  
 	@Override 
@@ -129,5 +140,9 @@ public class Level extends GraphicsPane implements ActionListener{
 		String[] enemyArray = E;
 		Arrays.fill(enemyArray, null); //Clears enemy array/sets all elements in the array to null
 		//System.out.println(enemyArray[0]);
+	}
+	
+	public void run() {
+		
 	}
 }

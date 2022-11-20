@@ -32,7 +32,7 @@ public class MainApplication extends Display {
 
 	public void switchToSome() {
 		playRandomSound();
-		switchToScreen(somePane);
+	//	switchToScreen(somePane);
 	}
 	
 	public void switchToHelp() {
