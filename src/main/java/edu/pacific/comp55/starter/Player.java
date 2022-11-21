@@ -25,6 +25,7 @@ public class Player extends GImage implements ActionListener {
 		this.attackDamage = attackDamage;
 		this.jumpPower = jumpPower;
 		this.moveSpeed = moveSpeed;
+		System.out.println("Player created");
 	}
 	
 	public void takeDamage(int dmg) {

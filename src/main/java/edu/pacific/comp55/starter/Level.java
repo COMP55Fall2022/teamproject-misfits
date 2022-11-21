@@ -77,7 +77,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	}
 	
 	public void keyPressed(KeyEvent e) {
-		
+		System.out.println("Key pressed");
 	}
 	
 	public void keyReleased(KeyEvent e) {
