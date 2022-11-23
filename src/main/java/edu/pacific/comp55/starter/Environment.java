@@ -27,12 +27,12 @@ import java.lang.Thread;
 		
 		
 		
-		public void init() {
-
-		    setSize(1000, 1000);
-
-
-		}
+//		public void init() {
+//
+//		    setSize(1000, 1000);
+//
+//
+//		}
 		
 		
 		public void run() {
