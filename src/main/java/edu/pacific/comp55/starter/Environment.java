@@ -51,6 +51,7 @@ import java.lang.Thread;
 		
 		//Moving clouds across background, it just uses the same cloud over and over again, once the letter i hits the borderline window we change that same 
 		//clouds x coordinate 1050 on the right side of the screen so it can slowly come back in screen, imitating animation
+		
 	public void moveClouds() {
 		int i = 0;
 		while(true){
