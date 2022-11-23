@@ -1,8 +1,9 @@
 package edu.pacific.comp55.starter;
 import acm.graphics.GImage;
+import java.util.Date; 
 import acm.program.GraphicsProgram;
-
 import acm.graphics.*;
+import java.lang.Thread;
 
 
 	public class Environment extends GraphicsProgram{
@@ -10,12 +11,12 @@ import acm.graphics.*;
 		
 		int x = 800;
 		int y = 0;
-		int velocity = 75;
+		int velocity = -50;
 		int BREAK_MS = 30;
+		
 		
 		//placeholder for background
 		//sets location x,y where the image should be "drawn"
-		
 		GImage background = new GImage("media/collection-mountain-scenery-for-game-background-vector-14922765.jpg",0,0);
 		
 		
@@ -25,6 +26,13 @@ import acm.graphics.*;
 		GImage cloud = new GImage("media/cumulus-cloud-3.jpg", x, y);
 		
 		
+		
+		public void init() {
+
+		    setSize(1000, 1000);
+
+
+		}
 		
 		
 		public void run() {
@@ -37,26 +45,36 @@ import acm.graphics.*;
 		
 	
 	
-//	public void setClouds( ) {
-//		
-//		
-//	}
+		
+		
+		
+		
+		//Moving clouds across background, it just uses the same cloud over and over again, once the letter i hits the borderline window we change that same 
+		//clouds x coordinate 1050 on the right side of the screen so it can slowly come back in screen, imitating animation
+	public void moveClouds() {
+		int i = 0;
+		while(true){
+				
+				
+				cloud.move(velocity, 0);
+				i=i+1;
+				if (i==19) {
+					cloud.move(1050,0);
+					i=0;
+				}
+				
+				try {
+					Thread.sleep(600);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				}
+			}
+	
+	
 	
 		
-	//okay its moving now, but its moving fast, and it seems to be stuck at two portions of the window for some reason.
-		
-	public void moveClouds() {
-		
-		while (true){
-			
-			cloud.move(velocity, 0);
-			if(x>0) {
-				x = x - velocity; 
-				velocity *= -1;
-			}
-		}
-		
-	}
 	
 	
 	public static void main(String[] args) {
