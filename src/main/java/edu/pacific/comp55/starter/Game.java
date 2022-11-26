@@ -29,10 +29,10 @@ public class Game extends GraphicsApplication {
 
 	public void run() {
 		
-		backG = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
-		backG.setColor(Color.black);
-		backG.setFilled(true);
-		add(backG);
+		//backG = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
+		//backG.setColor(Color.black);
+		//backG.setFilled(true);
+		//add(backG);
 		//player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
 		//add(player);
 		//somePane = new HUD(this);

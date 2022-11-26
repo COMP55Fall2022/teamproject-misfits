@@ -4,6 +4,7 @@ import java.awt.
 Color;
 import java.awt.event.MouseEvent;
 
+import acm.graphics.GImage;
 import acm.graphics.GObject;
 
 public class StartMenu extends GraphicsPane {
@@ -12,11 +13,15 @@ public class StartMenu extends GraphicsPane {
 	private GButton start;
 	private GButton exit;
 	private GButton help;
+	private GImage backG;
 	
 	
 	public StartMenu(Game app) {
 		super();
 		program = app;
+		
+		backG = new GImage("media/japan.jpeg",0,-10);
+		backG.setSize(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
 		
 		start = new GButton("Start Game", 300, 200, 200, 50);
 		start.setFillColor(Color.GREEN);
@@ -29,7 +34,7 @@ public class StartMenu extends GraphicsPane {
 
 	@Override
 	public void showContents() {
-		
+		program.add(backG);
 		program.add(start);
 		program.add(exit);
 		program.add(help);
@@ -40,6 +45,7 @@ public class StartMenu extends GraphicsPane {
 		program.remove(start);
 		program.remove(exit);
 		program.remove(help);
+		program.remove(backG);
 	}
 
 	@Override
