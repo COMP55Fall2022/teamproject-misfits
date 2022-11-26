@@ -28,7 +28,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	private Game mainScreen;
 	private HUD playerHud;
 	private HUD healthB;
-	private GObject Environment;
+	//private GObject Environment;
 	int health = 200;
 	
 	public Level(Game program) {
@@ -43,6 +43,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		healthB.setFillColor(Color.green);
 		healthB.setFilled(true);
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
+		
 	}
 	
 	
@@ -60,7 +61,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.add(exitToMenu);
 		mainScreen.add(playerHud);
 		mainScreen.add(healthB);
-		mainScreen.add(Environment);
+		//mainScreen.add(Environment);
 	}
 	  
 	@Override 
