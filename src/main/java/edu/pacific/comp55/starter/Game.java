@@ -24,7 +24,7 @@ public class Game extends GraphicsApplication {
 
 	public void init() {
 		setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-		
+				
 	}
 
 	public void run() {
