@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 import acm.graphics.*;
 import java.util.concurrent.*;
 
-public class Player extends GImage implements ActionListener {
+public class Player extends GImage {
 	
 	int health;
 	int moveSpeed;
@@ -53,11 +53,5 @@ public class Player extends GImage implements ActionListener {
 	public void jump(int jumpPower) {
 		
 	}
-
-@Override
-public void actionPerformed(ActionEvent e) {
-	System.out.println("Action performed");
-	
-}
 
 }
