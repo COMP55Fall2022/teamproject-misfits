@@ -6,8 +6,8 @@ import acm.graphics.GCanvas;
 import acm.graphics.GRect;
 
 public class Game extends GraphicsApplication {
-	public static final int WINDOW_WIDTH = 800;
-	public static final int WINDOW_HEIGHT = 600;
+	public static final int WINDOW_WIDTH = 900;
+	public static final int WINDOW_HEIGHT = 650;
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3" };
 

@@ -14,20 +14,21 @@ public class StartMenu extends GraphicsPane {
 	private GButton exit;
 	private GButton help;
 	private GImage backG;
+	private GImage title;
 	
 	
 	public StartMenu(Game app) {
 		super();
 		program = app;
 		
-		backG = new GImage("media/japan.jpeg",0,-10);
+		backG = new GImage("media/title.png",0,-10);
 		backG.setSize(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
 		
-		start = new GButton("Start Game", 300, 200, 200, 50);
+		start = new GButton("Start Game", 350, 250, 200, 50);
 		start.setFillColor(Color.GREEN);
-		exit = new GButton("Exit Game", 300,300,200,50);
+		exit = new GButton("Exit Game", 350,350,200,50);
 		exit.setFillColor(Color.GREEN);
-		help = new GButton("Help",300,400,200,50);
+		help = new GButton("Help",350,450,200,50);
 		help.setFillColor(Color.red);
 				
 	}
