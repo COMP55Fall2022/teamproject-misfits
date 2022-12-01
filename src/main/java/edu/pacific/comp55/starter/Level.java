@@ -68,6 +68,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	public void hideContents() { 
 		mainScreen.remove(player);
 		mainScreen.remove(exitToMenu); 
+		
 	}
 	
 	@Override 

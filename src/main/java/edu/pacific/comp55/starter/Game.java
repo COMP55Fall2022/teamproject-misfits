@@ -11,14 +11,10 @@ public class Game extends GraphicsApplication {
 	public static final String MUSIC_FOLDER = "sounds";
 	private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3" };
 
-	private HUD somePane;
-	private EnemyHUD enemyH;
 	private Help gameHelp;
 	private StartMenu menu;
 	private int count;
-	private GRect backG;
 	private Level level;
-	//private Player player;
 	
 	
 
@@ -29,14 +25,6 @@ public class Game extends GraphicsApplication {
 
 	public void run() {
 		
-		//backG = new GRect(WINDOW_WIDTH, WINDOW_HEIGHT);
-		//backG.setColor(Color.black);
-		//backG.setFilled(true);
-		//add(backG);
-		//player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
-		//add(player);
-		//somePane = new HUD(this);
-		//enemyH = new EnemyHUD(this);
 		menu = new StartMenu(this);
 		gameHelp = new Help(this);
 		level = new Level(this);
@@ -66,7 +54,7 @@ public class Game extends GraphicsApplication {
 	}
 	
 	public static void main(String[] args) {
-		//test
+		
 		new Game().start();
 	}
 }
