@@ -16,6 +16,7 @@ public class Help extends GraphicsPane {
 	 private GParagraph para; 
 	 private GButton goBack;
 	 private GParagraph help;
+	 private GParagraph helpMoves;
 	 
 	  
 	  
@@ -26,10 +27,13 @@ public class Help extends GraphicsPane {
 		 para.setColor(Color.black);
 		 
 		 help = new GParagraph("Making the player move", 10,200);
-		 help.setFont("Arial-20");
+		 help.setFont("Arial-italic-20");
 		 help.setColor(Color.black);
 		 
+		 helpMoves = new GParagraph("Move player left: left arrow key\nMove player right: right arrow key",10,230);
+		 helpMoves.setFont("Arial-15");
 		 
+		 helpMoves.setColor(Color.black);
 		 
 
 		 goBack = new GButton("Return to Menu", 0, 0, 100, 25);
@@ -41,7 +45,7 @@ public class Help extends GraphicsPane {
 		  helpProgram.add(para); 
 		  helpProgram.add(goBack); 
 		  helpProgram.add(help);
-		  
+		  helpProgram.add(helpMoves);
 		  
 	  }
 	  
