@@ -16,6 +16,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 
 public abstract class GraphicsPane implements Interfaceable {
+	private GraphicsPane curScreen;
+	
 	@Override
 	public abstract void showContents();
 
@@ -62,5 +64,12 @@ public abstract class GraphicsPane implements Interfaceable {
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 	}
-
+	
+	protected void switchToScreen(GraphicsPane newScreen) {
+		if(curScreen != null) {
+			curScreen.hideContents();
+		}
+		newScreen.showContents();
+		curScreen = newScreen;
+	}
 }

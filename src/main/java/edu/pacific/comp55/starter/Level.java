@@ -58,7 +58,6 @@ public class Level extends GraphicsPane implements ActionListener{
 	public void showContents() { 
 		mainScreen.add(player);
 		mainScreen.add(exitToMenu); 
-		mainScreen.add(exitToMenu);
 		mainScreen.add(playerHud);
 		mainScreen.add(healthB);
 		//mainScreen.add(Environment);
@@ -68,7 +67,8 @@ public class Level extends GraphicsPane implements ActionListener{
 	public void hideContents() { 
 		mainScreen.remove(player);
 		mainScreen.remove(exitToMenu); 
-		
+		mainScreen.remove(playerHud);
+		mainScreen.remove(healthB);
 	}
 	
 	@Override 

@@ -15,6 +15,7 @@ public class Game extends GraphicsApplication {
 	private StartMenu menu;
 	private int count;
 	private Level level;
+	private LevelSelector button;
 	
 	
 
@@ -28,6 +29,7 @@ public class Game extends GraphicsApplication {
 		menu = new StartMenu(this);
 		gameHelp = new Help(this);
 		level = new Level(this);
+		button = new LevelSelector(this);
 		setupInteractions();
 		switchToMenu();
 	}
@@ -40,10 +42,13 @@ public class Game extends GraphicsApplication {
 
 	public void switchToLevel() {
 		playRandomSound();
-		switchToScreen(level);
+		switchToScreen(button);
 		
 	}
 	
+	public void switchToMainScreen() {
+		switchToScreen(level);
+	}
 	public void switchToHelp() {
 		switchToScreen(gameHelp);
 	}
