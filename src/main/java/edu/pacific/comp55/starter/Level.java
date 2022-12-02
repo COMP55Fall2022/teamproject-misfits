@@ -79,19 +79,26 @@ public class Level extends GraphicsPane implements ActionListener{
 		  }
 	}
 	
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent e){
 		int key = e.getKeyCode();
 		
+		
 		switch(key) {
-		case (KeyEvent.VK_RIGHT):
+		case (KeyEvent.VK_RIGHT): //Right movement
 		
 		System.out.println("Right pressed");
+		
 		player.move(player.moveSpeed, 0);
 		break;
 		
-		case(KeyEvent.VK_LEFT):
+		case(KeyEvent.VK_LEFT): //Left Movement
 		player.move(-player.moveSpeed, 0);
 		
+		break;
+		
+		case(KeyEvent.VK_Z): //Attack
+			player.isAttacking = true;
+		break;
 		}
 		
 	}
