@@ -38,7 +38,6 @@ public class Enemy extends GImage {
 	public void attack() {
 		if (!isAttacking) {
 			isAttacking = true;
-			
 		}
 			
 	}
