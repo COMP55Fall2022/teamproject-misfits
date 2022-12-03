@@ -16,6 +16,7 @@ package edu.pacific.comp55.starter;
   private StartMenu menu; 
   private int count; 
   private Level level;
+  private LevelSelector levelMenu;
   
   
   boolean running = true;
@@ -55,6 +56,7 @@ package edu.pacific.comp55.starter;
   menu = new StartMenu(this); 
   gameHelp = new Help(this); 
   level = new Level(this); 
+  levelMenu = new LevelSelector(this);
   setupInteractions(); 
   switchToMenu();
   }
@@ -66,8 +68,12 @@ package edu.pacific.comp55.starter;
   
   public void switchToLevel() { 
   playRandomSound(); 
-  switchToScreen(level);
+  switchToScreen(levelMenu);
   }
+  
+  public void switchToMainScreen() {
+		switchToScreen(level);
+	}
   
   public void switchToHelp() { 
 	  switchToScreen(gameHelp); }

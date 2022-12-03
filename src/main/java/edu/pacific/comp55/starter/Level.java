@@ -23,7 +23,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	Timer addEnemy = new Timer(1000, this);
 	Timer attack = new Timer(1000, this);
 	private GButton exitToMenu;
-	private Game pauseMenu;
+	//private Game pauseMenu;
 	private Player player;
 	private Game mainScreen;
 	private HUD playerHud;
@@ -48,12 +48,13 @@ public class Level extends GraphicsPane implements ActionListener{
 	
 	
 
-	public void Pause(Game app) {
-		this.pauseMenu = app;
-		exitToMenu = new GButton("Return to Menu", 300, 200, 200, 50);
-		exitToMenu.setFillColor(Color.red);
-		
-	}
+//	public void Pause(Game app) {
+//		this.pauseMenu = app;
+//		exitToMenu = new GButton("Return to Menu", 300, 200, 200, 50);
+//		exitToMenu.setFillColor(Color.red);
+//		
+//	}
+	
 	@Override 
 	public void showContents() { 
 		mainScreen.add(player);
