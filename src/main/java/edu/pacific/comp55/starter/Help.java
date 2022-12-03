@@ -8,6 +8,7 @@ import java.awt.event.MouseEvent;
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GObject;
+import acm.graphics.GRect;
 import javafx.scene.text.Font;
 
 public class Help extends GraphicsPane {
@@ -17,11 +18,16 @@ public class Help extends GraphicsPane {
 	 private GButton goBack;
 	 private GParagraph help;
 	 private GParagraph helpMoves;
-	 
+	 private GRect helpBack;
 	  
 	  
 	 public Help(Game app) { 
 		 this.helpProgram = app; 
+		 helpBack = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
+		 
+		 helpBack.setFillColor(Color.blue);
+		 helpBack.setFilled(true);
+		 
 		 para = new GParagraph("Welcome to the help Menu", 160, 100);
 		 para.setFont("Arial-45");
 		 para.setColor(Color.black);
@@ -42,10 +48,13 @@ public class Help extends GraphicsPane {
 	 
 	
 	  @Override public void showContents() { 
+		  helpProgram.add(helpBack);
 		  helpProgram.add(para); 
 		  helpProgram.add(goBack); 
 		  helpProgram.add(help);
 		  helpProgram.add(helpMoves);
+		  
+			 
 		  
 	  }
 	  

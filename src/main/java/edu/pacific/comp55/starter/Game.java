@@ -1,18 +1,21 @@
 package edu.pacific.comp55.starter;
   
   import java.awt.Color;
-  
-  import acm.graphics.GCanvas; import acm.graphics.GRect;
+  import acm.graphics.GCanvas; 
+  import acm.graphics.GRect;
   
   
   public class Game extends GraphicsApplication implements Runnable{
   
-  public static final int WINDOW_WIDTH = 900; public static final int
-  WINDOW_HEIGHT = 650; public static final String MUSIC_FOLDER = "sounds";
+  public static final int WINDOW_WIDTH = 900; 
+  public static final int  WINDOW_HEIGHT = 650; 
+  public static final String MUSIC_FOLDER = "sounds";
   private static final String[] SOUND_FILES = { "Dreaming-of-Fuji.mp3" };
   
-  private Help gameHelp; private StartMenu menu; private int count; private
-  Level level;
+  private Help gameHelp; 
+  private StartMenu menu; 
+  private int count; 
+  private Level level;
   
   
   boolean running = true;
@@ -34,7 +37,10 @@ package edu.pacific.comp55.starter;
   
   if(delta >= 1){
   
-  tick(); render(); delta--;}} }
+  tick(); 
+  render();
+  delta--;
+  }} }
   
   private void tick() { // TODO Auto-generated method stub
   
@@ -45,13 +51,12 @@ package edu.pacific.comp55.starter;
   }
   
   public void init(){ 
-  setSize(900,650); 
+  setSize(WINDOW_WIDTH,WINDOW_HEIGHT); 
   menu = new StartMenu(this); 
   gameHelp = new Help(this); 
   level = new Level(this); 
   setupInteractions(); 
   switchToMenu();
-  
   }
   
   
@@ -62,10 +67,10 @@ package edu.pacific.comp55.starter;
   public void switchToLevel() { 
   playRandomSound(); 
   switchToScreen(level);
-  
   }
   
-  public void switchToHelp() { switchToScreen(gameHelp); }
+  public void switchToHelp() { 
+	  switchToScreen(gameHelp); }
   
   private void playRandomSound() { 
   AudioPlayer audio = AudioPlayer.getInstance(); 
@@ -74,7 +79,6 @@ package edu.pacific.comp55.starter;
   
    
   public static void main(String[] args) {
-		
 		new Game().start();
 	}
 }
