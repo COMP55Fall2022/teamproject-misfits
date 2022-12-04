@@ -54,13 +54,14 @@ public class Help extends GraphicsPane {
 		  helpProgram.add(help);
 		  helpProgram.add(helpMoves);
 		  
-			 
-		  
 	  }
 	  
 	  @Override public void hideContents() { 
 		  helpProgram.remove(para);
-		  helpProgram.remove(goBack); }
+		  helpProgram.remove(goBack);
+		  helpProgram.remove(helpBack);
+		  helpProgram.remove(help);
+		  helpProgram.remove(helpMoves);}
 	  
 	  @Override public void mousePressed(MouseEvent e) {
 	  GObject obj = helpProgram.getElementAt(e.getX(), e.getY());

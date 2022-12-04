@@ -25,7 +25,7 @@ package edu.pacific.comp55.starter;
   
   init(); 
   
-  int fps = 60; //number of frames per second. 
+  int fps = 60; //number of frames per second. GAMELOOP
   double tickPerSecond = 1000000000/fps; 
   double delta = 0; 
   long now;
@@ -43,11 +43,11 @@ package edu.pacific.comp55.starter;
   delta--;
   }} }
   
-  private void tick() { // TODO Auto-generated method stub
+  private void tick() { // updates the movement of sprites
   
   }
   
-  private void render() { // TODO Auto-generated method stub
+  private void render() { //displays the sprites
   
   }
   
@@ -63,11 +63,11 @@ package edu.pacific.comp55.starter;
   
   
   public void switchToMenu() { 
-  playRandomSound(); count++;
+  playMusic(); count++;
   switchToScreen(menu); }
   
   public void switchToLevel() { 
-  playRandomSound(); 
+  playMusic(); 
   switchToScreen(levelMenu);
   }
   
@@ -78,7 +78,7 @@ package edu.pacific.comp55.starter;
   public void switchToHelp() { 
 	  switchToScreen(gameHelp); }
   
-  private void playRandomSound() { 
+  private void playMusic() { 
   AudioPlayer audio = AudioPlayer.getInstance(); 
   audio.playSound(MUSIC_FOLDER, SOUND_FILES[count % SOUND_FILES.length]); 
   }

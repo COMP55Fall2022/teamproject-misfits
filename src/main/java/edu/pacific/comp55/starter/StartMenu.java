@@ -8,13 +8,11 @@ import acm.graphics.GImage;
 import acm.graphics.GObject;
 
 public class StartMenu extends GraphicsPane {
-	private Game program; // you will use program to get access to
-										// all of the GraphicsProgram calls
+	private Game program; 
 	private GButton start;
 	private GButton exit;
 	private GButton help;
 	private GImage backG;
-	private GImage title;
 	
 	
 	public StartMenu(Game app) {
@@ -23,7 +21,6 @@ public class StartMenu extends GraphicsPane {
 		
 		backG = new GImage("media/title.png",0,-10);
 		backG.setSize(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
-		
 		start = new GButton("Start Game", 350, 250, 200, 50);
 		start.setFillColor(Color.GREEN);
 		exit = new GButton("Exit Game", 350,350,200,50);
