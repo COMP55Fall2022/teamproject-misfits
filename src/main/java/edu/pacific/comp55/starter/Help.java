@@ -14,10 +14,11 @@ import javafx.scene.text.Font;
 public class Help extends GraphicsPane {
 
 	 private Game helpProgram; 	  
-	 private GParagraph para; 
+	 private GLabel para; 
 	 private GButton goBack;
-	 private GParagraph help;
-	 private GParagraph helpMoves;
+	 private GLabel help;
+	 private GLabel leftMove;
+	 private GLabel rightMove;
 	 private GRect helpBack;
 	  
 	  
@@ -25,21 +26,24 @@ public class Help extends GraphicsPane {
 		 this.helpProgram = app; 
 		 helpBack = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
 		 
+		 
 		 helpBack.setFillColor(Color.blue);
 		 helpBack.setFilled(true);
 		 
-		 para = new GParagraph("Welcome to the help Menu", 160, 100);
+		 para = new GLabel("Welcome to the help Menu", 160, 100);
 		 para.setFont("Arial-45");
 		 para.setColor(Color.black);
 		 
-		 help = new GParagraph("Making the player move", 10,200);
+		 help = new GLabel("Making the player move", 10,200);
 		 help.setFont("Arial-italic-20");
 		 help.setColor(Color.black);
 		 
-		 helpMoves = new GParagraph("Move player left: left arrow key\nMove player right: right arrow key",10,230);
-		 helpMoves.setFont("Arial-15");
-		 
-		 helpMoves.setColor(Color.black);
+		 leftMove = new GLabel("Move player left: left arrow key", 10,230);
+		 leftMove.setFont("Arial-15");		 
+		 leftMove.setColor(Color.black);
+		 rightMove = new GLabel ("Move player right: right arrow key", 10, 250);
+		 rightMove.setFont("Arial-15");		 
+		 rightMove.setColor(Color.black);
 		 
 
 		 goBack = new GButton("Return to Menu", 0, 0, 100, 25);
@@ -52,7 +56,8 @@ public class Help extends GraphicsPane {
 		  helpProgram.add(para); 
 		  helpProgram.add(goBack); 
 		  helpProgram.add(help);
-		  helpProgram.add(helpMoves);
+		  helpProgram.add(leftMove);
+		  helpProgram.add(rightMove);
 		  
 	  }
 	  
@@ -61,7 +66,8 @@ public class Help extends GraphicsPane {
 		  helpProgram.remove(goBack);
 		  helpProgram.remove(helpBack);
 		  helpProgram.remove(help);
-		  helpProgram.remove(helpMoves);}
+		  helpProgram.remove(leftMove);
+		  helpProgram.remove(rightMove);}
 	  
 	  @Override public void mousePressed(MouseEvent e) {
 	  GObject obj = helpProgram.getElementAt(e.getX(), e.getY());

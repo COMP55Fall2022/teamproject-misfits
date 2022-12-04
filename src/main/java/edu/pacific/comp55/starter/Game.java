@@ -25,7 +25,7 @@ package edu.pacific.comp55.starter;
   
   init(); 
   
-  int fps = 60; //number of frames per second. GAMELOOP
+  int fps = 60; //number of frames per second. start of GAMELOOP
   double tickPerSecond = 1000000000/fps; 
   double delta = 0; 
   long now;
@@ -63,7 +63,8 @@ package edu.pacific.comp55.starter;
   
   
   public void switchToMenu() { 
-  playMusic(); count++;
+  playMusic(); 
+  count++;
   switchToScreen(menu); }
   
   public void switchToLevel() { 
