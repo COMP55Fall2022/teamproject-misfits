@@ -38,14 +38,14 @@ package edu.pacific.comp55.starter;
   
   if(delta >= 1){
   
-  tick(); 
   render();
   delta--;
   }} }
   
-  private void tick() { // updates the movement of sprites
+/*  private void tick() { // updates the movement of sprites
   
   }
+  */
   
   private void render() { //displays the sprites
   

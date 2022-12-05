@@ -60,8 +60,11 @@ public class Player extends GImage {
 	}
 	
 	public void tick() {
+		System.out.println("tick");
 		x+=dx;
 		y+=dy;
+		
+		this.move(50, 50);
 	}
 
 }
