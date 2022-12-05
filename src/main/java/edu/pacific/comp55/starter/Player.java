@@ -15,6 +15,11 @@ public class Player extends GImage {
 	boolean isAttacking = false;
 	int attackCD = 1; //(seconds)
 	
+	public static int dx;
+	public static int dy;
+	public static int x;
+	public static int y;
+	
 
 	//You're gonna need to include all these values when creating the player, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
@@ -52,6 +57,11 @@ public class Player extends GImage {
 	
 	public void jump(int jumpPower) {
 		
+	}
+	
+	public void tick() {
+		x+=dx;
+		y+=dy;
 	}
 
 }
