@@ -35,17 +35,17 @@ package edu.pacific.comp55.starter;
   
   now = System.nanoTime(); delta += (now - lastTime)/tickPerSecond; 
   lastTime =  now;
-  
+  tick();
   if(delta >= 1){
   
   render();
   delta--;
   }} }
   
-/*  private void tick() { // updates the movement of sprites
-  
+private void tick() { // updates the movement of sprites
+ // System.out.println("Tick");
   }
-  */
+
   
   private void render() { //displays the sprites
   
