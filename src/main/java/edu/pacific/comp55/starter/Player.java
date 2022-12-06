@@ -22,6 +22,7 @@ public class Player extends GImage implements ActionListener {
 	public  int y;
 	
 	public Timer movementTimer;
+	public Timer attackReset;
 	int count = 0;
 
 
@@ -35,6 +36,7 @@ public class Player extends GImage implements ActionListener {
 		this.jumpPower = jumpPower;
 		this.moveSpeed = moveSpeed;
 		movementTimer = new Timer(10,this);
+		attackReset = new Timer(100,this);
 		System.out.println("Player created");
 		movementTimer.start();
 	}
@@ -45,16 +47,9 @@ public class Player extends GImage implements ActionListener {
 	}
 	
 	public void attack() {
-		if (!isAttacking) {
-			isAttacking = true;
-			try {
-				Thread.sleep(attackCD * 1000);
-				isAttacking = false;
-
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
+		this.isAttacking = true;
+		this.setImage("media/Turtle/onigiri_action.png");
+		attackReset.start();
 	}
 	
 	public void parry() {
@@ -78,6 +73,10 @@ public class Player extends GImage implements ActionListener {
 			this.move(dx,dy);
 			System.out.println(dx);
 			System.out.println(dy);
+		}
+		if (source ==attackReset) {
+			this.setImage("media/Turtle/onigiri_color_idle.png");
+			attackReset.stop();
 		}
 	}
 

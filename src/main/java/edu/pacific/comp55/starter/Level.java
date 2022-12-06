@@ -34,7 +34,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	
 	public Level(Game program) {
 		mainScreen = program;
-		player = new Player("media/idle_Onigiri.png", 250, 250, 5, 5, 5, 5);
+		player = new Player("media/Turtle/onigiri_color_idle.png", 250, 250, 5, 5, 5, 5);
 		playerHud = new HUD(20, 50, 200, 25); //creating health bar
 		playerHud.setFillColor(Color.RED);
 		playerHud.setFilled(true);
@@ -105,8 +105,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		break;
 		
 		case(KeyEvent.VK_Z): //Attack
-			player.isAttacking = true;
-			player.setImage("");
+			player.attack();
 		break;
 		}
 		
