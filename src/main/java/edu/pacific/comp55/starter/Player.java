@@ -15,6 +15,8 @@ public class Player extends GImage implements ActionListener {
 	boolean isParrying = false;
 	boolean isAttacking = false;
 	int attackCD = 1; //(seconds)
+	double height;
+	double width;
 	
 	public  int dx;
 	public  int dy;
@@ -35,8 +37,11 @@ public class Player extends GImage implements ActionListener {
 		this.attackDamage = attackDamage;
 		this.jumpPower = jumpPower;
 		this.moveSpeed = moveSpeed;
+		this.height = height;
+		this.width = width;
 		movementTimer = new Timer(10,this);
 		attackReset = new Timer(200,this);
+		this.setBounds(this.getX(), this.getY(), width, height);
 		System.out.println("Player created");
 		movementTimer.start();
 	}
@@ -50,6 +55,7 @@ public class Player extends GImage implements ActionListener {
 		if (!isAttacking) {
 		this.isAttacking = true;
 		this.setImage("media/Turtle/onigiri_action.png");
+		this.setBounds(this.getX(), this.getY(), this.width, this.height);
 		attackReset.start();
 		}
 	}
@@ -78,6 +84,7 @@ public class Player extends GImage implements ActionListener {
 		}
 		if (source ==attackReset) {
 			this.setImage("media/Turtle/onigiri_color_idle.png");
+			this.setBounds(this.getX(),this.getY(),this.width,this.height);
 			this.isAttacking = false;
 			attackReset.stop();
 		}
