@@ -93,19 +93,20 @@ public class Level extends GraphicsPane implements ActionListener{
 		
 		System.out.println("Right pressed");
 		
-		player.dx+=2;
+		player.dx+=player.moveSpeed;
 		break;
 		
 		case(KeyEvent.VK_LEFT): //Left Movement
 		//player.move(-player.moveSpeed, 0);
 		System.out.println("Left Pressed");
-		player.dx-=2;
+		player.dx-=player.moveSpeed;
 
 		
 		break;
 		
 		case(KeyEvent.VK_Z): //Attack
 			player.isAttacking = true;
+			player.setImage("");
 		break;
 		}
 		
