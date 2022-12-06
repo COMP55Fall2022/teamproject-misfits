@@ -85,21 +85,21 @@ public class Level extends GraphicsPane implements ActionListener{
 	
 	public void keyPressed(KeyEvent e){
 		int key = e.getKeyCode();
-		Player.dy=0;
-		Player.dx=0;
+		player.dy=0;
+		player.dx=0;
 		
 		switch(key) {
 		case (KeyEvent.VK_RIGHT): //Right movement
 		
 		System.out.println("Right pressed");
 		
-		Player.dx+=2;
+		player.dx+=2;
 		break;
 		
 		case(KeyEvent.VK_LEFT): //Left Movement
 		//player.move(-player.moveSpeed, 0);
 		System.out.println("Left Pressed");
-		Player.dx-=2;
+		player.dx-=2;
 
 		
 		break;
@@ -113,20 +113,21 @@ public class Level extends GraphicsPane implements ActionListener{
 	
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
-		//Player.dy=0;
-		//Player.dx=0;
+		player.dy=0;
+		player.dx=0;
 		
 		switch(key) {
 		case (KeyEvent.VK_RIGHT): //Right movement
 		
-		System.out.println("Right pressed");
+		System.out.println("Right Released");
 		
-		Player.dx=0;
+		player.dx=0;
 		break;
 		
 		case(KeyEvent.VK_LEFT): //Left Movement
 		//player.move(-player.moveSpeed, 0);
-		Player.dx=0;
+		System.out.println("Left Released");
+		player.dx=0;
 
 		break;
 		}

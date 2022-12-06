@@ -16,10 +16,10 @@ public class Player extends GImage implements ActionListener {
 	boolean isAttacking = false;
 	int attackCD = 1; //(seconds)
 	
-	public static int dx;
-	public static int dy;
-	public static int x;
-	public static int y;
+	public  int dx;
+	public  int dy;
+	public  int x;
+	public  int y;
 	
 	public Timer movementTimer;
 	int count = 0;
@@ -75,7 +75,6 @@ public class Player extends GImage implements ActionListener {
 		Object source = e.getSource();
 		if (source ==movementTimer) {
 			count++;
-			System.out.println(count);
 			this.updatePos();
 			
 		}
