@@ -4,8 +4,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
 import java.util.concurrent.*;
+import javax.swing.Timer;
 
-public class Player extends GImage {
+public class Player extends GImage implements ActionListener {
 	
 	int health;
 	int moveSpeed;
@@ -20,6 +21,9 @@ public class Player extends GImage {
 	public static int x;
 	public static int y;
 	
+	public Timer movementTimer;
+	int count = 0;
+
 
 	//You're gonna need to include all these values when creating the player, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
@@ -30,7 +34,9 @@ public class Player extends GImage {
 		this.attackDamage = attackDamage;
 		this.jumpPower = jumpPower;
 		this.moveSpeed = moveSpeed;
+		movementTimer = new Timer(10,this);
 		System.out.println("Player created");
+		movementTimer.start();
 	}
 	
 	public void takeDamage(int dmg) {
@@ -59,12 +65,18 @@ public class Player extends GImage {
 		
 	}
 	
-	public void tick() {
-		System.out.println("tick");
-		x+=dx;
-		y+=dy;
-		
-		this.move(50, 50);
+	
+	
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		if (source ==movementTimer) {
+			count++;
+			System.out.println(count);
+			//this.updatePos();
+			
+		}
 	}
 
 }
+
+
