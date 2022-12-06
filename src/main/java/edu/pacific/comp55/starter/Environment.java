@@ -1,86 +1,62 @@
 package edu.pacific.comp55.starter;
 import acm.graphics.GImage;
-import java.util.Date; 
+import java.util.Date;
+
+import javax.swing.Timer;
+
 import acm.program.GraphicsProgram;
 import acm.graphics.*;
+
+import java.awt.ActiveEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.Thread;
 
 
-	public class Environment extends GraphicsProgram{
+	public class Environment implements ActionListener {
 		
-		
-		int x = 800;
-		int y = 0;
+		int i = 0;
+		int x1 = 800;
+		int y1 = 0;
 		int velocity = -50;
 		int BREAK_MS = 30;
+		GImage background;
+		GImage cloud;
+		Game app;
+		Timer cloudTimer;
 		
+		public Environment (Game app, String name, int x, int y) {
+			background = new GImage(name, x, y);
+			background.setSize(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
+			cloud = new GImage("media/cumulus-cloud-3.jpg", 800, 0);
+			cloud.setSize(50,50);
+			cloudTimer = new Timer(500, this);
+			this.app = app;
+			
+		}		
 		
-		//placeholder for background
-		//sets location x,y where the image should be "drawn"
-		GImage background = new GImage("media/collection-mountain-scenery-for-game-background-vector-14922765.jpg",0,0);
-		
-		
-		
-		//placeholder for cloud image, trying to make clouds move across.
-		//sets location of x,y where the image should be "drawn"
-		GImage cloud = new GImage("media/cumulus-cloud-3.jpg", x, y);
-		
-		
-		
-//		public void init() {
-//
-//		    setSize(1000, 1000);
-//
-//
-//		}
-		
-		
-		public void run() {
-			background.setSize(1000,1000);
-			add(background);
-			cloud.setSize(100,100);
-			add(cloud);
-			moveClouds();
+		public void showEnvironment() {
+			app.add(background);
+			app.add(cloud);
+			cloudTimer.start();
 		}
 		
-	
-	
+		public void hideEnvironment() {
+			app.remove(background);
+			app.remove(cloud);
+			cloudTimer.stop();
+		}
 		
-		
-		
-		
-		//Moving clouds across background, it just uses the same cloud over and over again, once the letter i hits the borderline window we change that same 
-		//clouds x coordinate 1050 on the right side of the screen so it can slowly come back in screen, imitating animation
-		
-	public void moveClouds() {
-		int i = 0;
-		while(true){
-				
-				
-				cloud.move(velocity, 0);
-				i=i+1;
-				if (i==19) {
-					cloud.move(1050,0);
-					i=0;
-				}
-				
-				try {
-					Thread.sleep(600);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} 
-				}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			cloud.move(velocity, 0);
+			i=i+1;
+			if (i==19) {
+				cloud.move(1050,0);
+				i=0;
 			}
-	
-	
-	
-		
-	
-	
-	public static void main(String[] args) {
-		new Environment().start();
-	}
+		}
+
 
 }
 

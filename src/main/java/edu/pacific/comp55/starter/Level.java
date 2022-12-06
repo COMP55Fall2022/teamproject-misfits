@@ -30,6 +30,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	private HUD healthB;
 	//private GObject Environment;
 	int health = 200;
+	private Environment environment;
 	
 	public Level(Game program) {
 		mainScreen = program;
@@ -43,7 +44,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		healthB.setFillColor(Color.green);
 		healthB.setFilled(true);
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
-		
+		environment = new Environment (program, "media/collection-mountain-scenery-for-game-background-vector-14922765.jpg",0,0);
 	}
 	
 	
@@ -57,6 +58,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	
 	@Override 
 	public void showContents() { 
+		environment.showEnvironment();
 		mainScreen.add(player);
 		mainScreen.add(exitToMenu); 
 		mainScreen.add(playerHud);
@@ -70,6 +72,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.remove(exitToMenu); 
 		mainScreen.remove(playerHud);
 		mainScreen.remove(healthB);
+		environment.hideEnvironment();
 	}
 	
 	@Override 
