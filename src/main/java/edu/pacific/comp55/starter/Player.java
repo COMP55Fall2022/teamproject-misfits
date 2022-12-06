@@ -25,7 +25,9 @@ public class Player extends GImage implements ActionListener {
 	
 	public Timer movementTimer;
 	public Timer attackReset;
+	public Timer jumpTimer;
 	int count = 0;
+	int jumpHandler = 0;
 
 
 	//You're gonna need to include all these values when creating the player, that way it
@@ -40,7 +42,8 @@ public class Player extends GImage implements ActionListener {
 		this.height = height;
 		this.width = width;
 		movementTimer = new Timer(10,this);
-		attackReset = new Timer(200,this);
+		jumpTimer = new Timer(10,this);
+		attackReset = new Timer(300,this);
 		this.setBounds(this.getX(), this.getY(), width, height);
 		System.out.println("Player created");
 		movementTimer.start();
@@ -65,7 +68,7 @@ public class Player extends GImage implements ActionListener {
 	}
 	
 	public void jump(int jumpPower) {
-		
+		jumpTimer.start();
 	}
 	
 	public void updatePos() {
@@ -77,19 +80,31 @@ public class Player extends GImage implements ActionListener {
 		Object source = e.getSource();
 		if (source ==movementTimer) {
 			count++;
-			this.updatePos();
-			this.move(dx,dy);
-			System.out.println(dx);
-			System.out.println(dy);
+			if (this.getX()<800) {
+				this.updatePos();
+				this.move(dx,dy);
+			}else {
+				this.move(dx-4,0);
+			}
+			if(this.getX()>-20) {
+				this.updatePos();
+				this.move(dx,dy);
+
+			}else {
+				this.move(dx+4,0);
+			}
 		}
+			//System.out.println(dx);
+			//System.out.println(dy);
 		if (source ==attackReset) {
 			this.setImage("media/Turtle/onigiri_color_idle.png");
 			this.setBounds(this.getX(),this.getY(),this.width,this.height);
 			this.isAttacking = false;
 			attackReset.stop();
 		}
+		
 	}
-
 }
+
 
 
