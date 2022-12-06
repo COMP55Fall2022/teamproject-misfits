@@ -65,14 +65,18 @@ public class Player extends GImage implements ActionListener {
 		
 	}
 	
-	
+	public void updatePos() {
+		x+=dx;
+		y+=dy;
+		this.move(x,y);
+	}
 	
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source ==movementTimer) {
 			count++;
 			System.out.println(count);
-			//this.updatePos();
+			this.updatePos();
 			
 		}
 	}
