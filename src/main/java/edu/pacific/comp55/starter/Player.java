@@ -54,7 +54,7 @@ public class Player extends GImage implements ActionListener {
 	public void attack() {
 		if (!isAttacking) {
 		this.isAttacking = true;
-		this.setImage("media/Turtle/onigiri_action.png");
+		this.setImage("media/Turtle/onigiri_action2.png");
 		this.setBounds(this.getX(), this.getY(), this.width, this.height);
 		attackReset.start();
 		}
