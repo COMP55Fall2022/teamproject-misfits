@@ -32,6 +32,8 @@ public class Player extends GImage implements ActionListener {
 	public Timer jumpTimer = new Timer(10,this);
 	int jumpCount = 0;
 	int gravityEffect = 4;
+	AudioPlayer audio = AudioPlayer.getInstance(); 
+
 
 	//You're gonna need to include all these values when creating the player, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
@@ -45,7 +47,7 @@ public class Player extends GImage implements ActionListener {
 		this.height = height;
 		this.width = width;
 		movementTimer = new Timer(10,this);
-		attackReset = new Timer(300,this);
+		attackReset = new Timer(400,this);
 		this.setBounds(this.getX(), this.getY(), width, height);
 		System.out.println("Player created");
 		movementTimer.start();
@@ -62,6 +64,7 @@ public class Player extends GImage implements ActionListener {
 		this.isAttacking = true;
 		this.setImage("media/Turtle/onigiri_action2.png");
 		this.setBounds(this.getX(), this.getY(), this.width, this.height);
+		audio.playSound("sounds", "Swing.mp3");
 		attackReset.start();
 		}
 	}
@@ -115,6 +118,7 @@ public class Player extends GImage implements ActionListener {
 			this.setImage("media/Turtle/onigiri_color_idle.png");
 			this.setBounds(this.getX(),this.getY(),this.width,this.height);
 			this.isAttacking = false;
+			audio.stopSound("sounds", "Swing.mp3");
 			attackReset.stop();
 		}
 		
