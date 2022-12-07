@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
+
+import java.util.TimerTask;
 import java.util.concurrent.*;
 import javax.swing.Timer;
 
@@ -14,6 +16,8 @@ public class Player extends GImage implements ActionListener {
 	int attackDamage;
 	boolean isParrying = false;
 	boolean isAttacking = false;
+	boolean isJumping = false;
+	boolean onGround = true;
 	int attackCD = 1; //(seconds)
 	double height;
 	double width;
@@ -25,10 +29,9 @@ public class Player extends GImage implements ActionListener {
 	
 	public Timer movementTimer;
 	public Timer attackReset;
-	public Timer jumpTimer;
-	int count = 0;
-	int jumpHandler = 0;
-
+	public Timer jumpTimer = new Timer(10,this);
+	int jumpCount = 0;
+	int gravityEffect = 4;
 
 	//You're gonna need to include all these values when creating the player, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
@@ -42,12 +45,12 @@ public class Player extends GImage implements ActionListener {
 		this.height = height;
 		this.width = width;
 		movementTimer = new Timer(10,this);
-		jumpTimer = new Timer(10,this);
 		attackReset = new Timer(300,this);
 		this.setBounds(this.getX(), this.getY(), width, height);
 		System.out.println("Player created");
 		movementTimer.start();
 	}
+	
 	
 	public void takeDamage(int dmg) {
 		health -=dmg;
@@ -67,8 +70,12 @@ public class Player extends GImage implements ActionListener {
 		
 	}
 	
-	public void jump(int jumpPower) {
+		
+	public void jump() {
+		if(!isJumping && onGround) {
+		this.isJumping = true;
 		jumpTimer.start();
+		}
 	}
 	
 	public void updatePos() {
@@ -79,7 +86,6 @@ public class Player extends GImage implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if (source ==movementTimer) {
-			count++;
 			if (this.getX()<800) {
 				this.updatePos();
 				this.move(dx,dy);
@@ -93,6 +99,15 @@ public class Player extends GImage implements ActionListener {
 			}else {
 				this.move(dx+4,0);
 			}
+			
+			//gravity, keep this man on the ground!
+			
+			if(this.getY()<350) {
+				this.move(0,this.gravityEffect);
+				this.onGround = false;
+			}else {
+				this.onGround = true;
+			}
 		}
 			//System.out.println(dx);
 			//System.out.println(dy);
@@ -101,6 +116,18 @@ public class Player extends GImage implements ActionListener {
 			this.setBounds(this.getX(),this.getY(),this.width,this.height);
 			this.isAttacking = false;
 			attackReset.stop();
+		}
+		
+		if (source==jumpTimer) {
+			if (jumpCount <20) {
+			this.move(0, this.jumpPower*-1);
+			jumpCount++;
+			return;
+			}
+			jumpCount = 0;
+			this.isJumping = false;
+			jumpTimer.stop();
+			
 		}
 		
 	}
