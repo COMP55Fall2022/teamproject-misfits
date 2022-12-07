@@ -25,6 +25,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	private GButton exitToMenu;
 	//private Game pauseMenu;
 	private Player player;
+	private Enemy enemy1;
 	private Game mainScreen;
 	private HUD playerHud;
 	private HUD healthB;
@@ -35,6 +36,8 @@ public class Level extends GraphicsPane implements ActionListener{
 	public Level(Game program) {
 		mainScreen = program;
 		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 5, 5, 2, 8);
+		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 5, 5, 5, 5);
+		enemy1.setLocation(0, 275);
 		player.move(200, 200);
 		playerHud = new HUD(20, 50, 200, 25); //creating health bar
 		playerHud.setFillColor(Color.RED);
@@ -64,6 +67,8 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.add(exitToMenu); 
 		mainScreen.add(playerHud);
 		mainScreen.add(healthB);
+		//highly suggest when we add in enemies to store them in an array or vector and then loop through them to show/hide them
+		mainScreen.add(enemy1);
 		//mainScreen.add(Environment);
 	}
 	  
@@ -73,6 +78,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.remove(exitToMenu); 
 		mainScreen.remove(playerHud);
 		mainScreen.remove(healthB);
+		mainScreen.remove(enemy1);
 		environment.hideEnvironment();
 	}
 	

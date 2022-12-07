@@ -26,6 +26,7 @@ public class Enemy extends GImage {
 		this.attackDamage = attackDamage;
 		this.jumpPower = jumpPower;
 		this.moveSpeed = moveSpeed;
+		this.setBounds(this.getX(), this.getHeight(), width, height);
 		System.out.println("Enemy created");
 	}
 	
@@ -41,10 +42,6 @@ public class Enemy extends GImage {
 			
 		}
 			
-	}
-	
-	public void jump(int jumpPower) {
-		
 	}
 
 }
