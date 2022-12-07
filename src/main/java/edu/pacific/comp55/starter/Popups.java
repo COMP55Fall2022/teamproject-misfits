@@ -1,5 +1,6 @@
 package edu.pacific.comp55.starter;
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
@@ -10,6 +11,7 @@ public class Popups extends GraphicsPane{
 	private GImage endLevel;
 	private GRect background;
 	private boolean win;
+	private GButton exitToLevel;
 	
 	public Popups(Game program, boolean didWin) {
 		
@@ -20,8 +22,11 @@ public class Popups extends GraphicsPane{
 		background.setFillColor(Color.black);
 		background.setFilled(true);
 		
-		endLevel = new GImage("media/LevelCleared.png");
+		endLevel = new GImage("media/LevelCleared (1).png");
 		endLevel.setLocation(0, 0);
+		
+		exitToLevel = new GButton("Change level", 350,250,200,50);
+		exitToLevel.setFillColor(Color.GREEN);
 	}
 	
 
@@ -55,6 +60,7 @@ public class Popups extends GraphicsPane{
 		if(win ==  true) {
 			popups.add(background);
 			popups.add(endLevel);
+			popups.add(exitToLevel);
 		}
 		
 	}
@@ -62,8 +68,16 @@ public class Popups extends GraphicsPane{
 	public void removeWinScreen() {
 		popups.remove(background);
 		popups.remove(endLevel);
+		popups.remove(exitToLevel);
 	}
 	
+	
+	public void mousePressed(MouseEvent e) {
+		GObject obj = popups.getElementAt(e.getX(), e.getY());
+		if (obj == exitToLevel) {
+			popups.switchToLevel();
+		}
+	}
 	public void drawBeginningTitle() {
 		//GImage beginningTitle = new GImage();
 		//add(beginningTitle);
