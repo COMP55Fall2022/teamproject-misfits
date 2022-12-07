@@ -38,7 +38,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	public Level(Game program) {
 		mainScreen = program;
 		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 5, 5, 2, 8);
-		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 5, 5, 5, 5,player);
+		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 200, 5, 5, 5,player);
 		enemy1.setLocation(0, 275);
 		player.move(200, 200);
 		playerHud = new HUD(20, 50, 200, 25); //creating health bar
