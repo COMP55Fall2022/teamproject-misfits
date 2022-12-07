@@ -72,7 +72,6 @@ public class Enemy extends GImage implements ActionListener {
 				this.move(.5,0);
 			}else {
 				attack();
-				
 			}
 		}
 		
