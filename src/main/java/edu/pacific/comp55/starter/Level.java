@@ -30,7 +30,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	private HUD playerHud;
 	private HUD healthB;
 	//private GObject Environment;
-	int health = 200;
+	int health = 100;
 	private Environment environment;
 	private GButton pop;
 	private boolean win = true;
@@ -41,10 +41,10 @@ public class Level extends GraphicsPane implements ActionListener{
 		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 5, 5, 5, 5,player);
 		enemy1.setLocation(0, 275);
 		player.move(200, 200);
-		playerHud = new HUD(20, 50, 200, 25); //creating health bar
+		playerHud = new HUD(20, 50, 100, 25); //creating health bar
 		playerHud.setFillColor(Color.RED);
 		playerHud.setFilled(true);
-		health -= 50;//declines current health(green bar) THIS JUST TESTS THAT IT DECLINES. FUNCTIONALITY STILL NEEDED FOR WHEN BEING HIT.
+		health -= 10;//declines current health(green bar) THIS JUST TESTS THAT IT DECLINES. FUNCTIONALITY STILL NEEDED FOR WHEN BEING HIT.
 		healthB = new HUD(20, 50, health, 25);//creating current health bar(green bar)
 		healthB.clamp(0, 0, 100); // clamps health bar so it doesn't shift and instead shrinks	
 		healthB.setFillColor(Color.green);
