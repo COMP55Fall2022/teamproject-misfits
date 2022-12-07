@@ -17,6 +17,7 @@ package edu.pacific.comp55.starter;
   private int count; 
   private Level level;
   private LevelSelector levelMenu;
+  private Popups popUps;
   
   
   boolean running = true;
@@ -57,6 +58,7 @@ private void tick() { // updates the movement of sprites
   gameHelp = new Help(this); 
   level = new Level(this); 
   levelMenu = new LevelSelector(this);
+  popUps = new Popups(this, running);
   setupInteractions(); 
   switchToMenu();
   }
@@ -75,6 +77,10 @@ private void tick() { // updates the movement of sprites
   public void switchToMainScreen() {
 		switchToScreen(level);
 	}
+  
+ public void switchToPopups(boolean win) {
+	  switchToScreen(popUps);
+  }
   
   public void switchToHelp() { 
 	  switchToScreen(gameHelp); }

@@ -35,18 +35,18 @@ import acm.graphics.GRect;
 		  background.setFillColor(Color.red);
 		  background.setFilled(true);
 		  
-		  title = new GLabel("Please select a level", 200, 100);
+		  title = new GLabel("Please select a level", 240, 100);
 		  title.setFont("Arial-45");
 		  title.setColor(Color.black);
 		  
 		  int locX = 100; 
 		  int locY = 150; 
 		  levelSelector1 = new GButton("Level 1", locX, locY, 100, 50); 
-		  locX = locX + 175; 
+		  locX+= 200; 
 		  levelSelector2 = new GButton("Level 2", locX, locY, 100, 50); 
-		  locX = locX + 175;
+		  locX+= 200;
 		  levelSelector3 = new GButton("Level 3", locX, locY, 100, 50); 
-		  locX = locX + 175; 
+		  locX+= 200; 
 		  levelSelector4 = new GButton("Level 4", locX, locY, 100, 50); 
 	  
 		  exitToMenu = new GButton("Exit to Menu", 10, 10, 100, 25, Color.white);

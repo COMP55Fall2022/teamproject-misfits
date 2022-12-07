@@ -32,6 +32,8 @@ public class Level extends GraphicsPane implements ActionListener{
 	//private GObject Environment;
 	int health = 200;
 	private Environment environment;
+	private GButton pop;
+	private boolean win = true;
 	
 	public Level(Game program) {
 		mainScreen = program;
@@ -48,6 +50,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		healthB.setFillColor(Color.green);
 		healthB.setFilled(true);
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
+		pop = new GButton("pop", 100, 150, 50, 20, Color.white);
 		environment = new Environment (program, "media/collection-mountain-scenery-for-game-background-vector-14922765.jpg",0,0);
 	}
 	
@@ -69,6 +72,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.add(healthB);
 		//highly suggest when we add in enemies to store them in an array or vector and then loop through them to show/hide them
 		mainScreen.add(enemy1);
+		mainScreen.add(pop);
 		//mainScreen.add(Environment);
 	}
 	  
@@ -80,6 +84,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.remove(healthB);
 		mainScreen.remove(enemy1);
 		environment.hideEnvironment();
+		mainScreen.remove(pop);
 	}
 	
 	@Override 
@@ -87,6 +92,9 @@ public class Level extends GraphicsPane implements ActionListener{
 		  GObject obj = mainScreen.getElementAt(e.getX(), e.getY());
 		  if (obj ==  exitToMenu) {
 			  mainScreen.switchToMenu(); 
+		  }
+		  if (obj ==  pop) {
+			  mainScreen.switchToPopups(win);
 		  }
 	}
 	
