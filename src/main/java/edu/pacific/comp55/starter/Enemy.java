@@ -5,7 +5,9 @@ import java.awt.event.KeyEvent;
 import acm.graphics.*;
 import java.util.concurrent.*;
 
-public class Enemy extends GImage {
+import javax.swing.Timer;
+
+public class Enemy extends GImage implements ActionListener {
 	
 	int health;
 	int moveSpeed;
@@ -14,13 +16,15 @@ public class Enemy extends GImage {
 	boolean isParrying = false;
 	boolean isAttacking = false;
 	int attackCD = 1; //(seconds)
+	Timer enemyLoop = new Timer(10,this);
+	Player target;
 	
 	
 
 	//You're gonna need to include all these values when creating an enemy, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
 	
-	public Enemy(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower) {
+	public Enemy(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower,Player target) {
 		super(playerModel, width, height);
 		this.health = health;
 		this.attackDamage = attackDamage;
@@ -28,6 +32,7 @@ public class Enemy extends GImage {
 		this.moveSpeed = moveSpeed;
 		this.setBounds(this.getX(), this.getHeight(), width, height);
 		System.out.println("Enemy created");
+		this.target = target;
 	}
 	
 	public int takeDamage(int dmg) {
@@ -43,5 +48,15 @@ public class Enemy extends GImage {
 		}
 			
 	}
+	
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		
+		if (source==enemyLoop) {
+		
+		}
+		
+	}
+
 
 }
