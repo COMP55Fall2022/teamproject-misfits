@@ -15,10 +15,15 @@ public class Enemy extends GImage implements ActionListener {
 	int attackDamage;
 	boolean isParrying = false;
 	boolean isAttacking = false;
-	int attackCD = 1; //(seconds)
+	boolean onCooldown = false;
+	int attackCD = 400; //(ms)
 	Timer enemyLoop = new Timer(10,this);
-	Timer attackLoop = new Timer(400,this);
+	Timer attackTimer = new Timer(400,this);
+	Timer CD = new Timer(attackCD,this);
 	Player target;
+	double height;
+	double width;
+	
 	
 	
 
@@ -32,6 +37,8 @@ public class Enemy extends GImage implements ActionListener {
 		this.jumpPower = jumpPower;
 		this.moveSpeed = moveSpeed;
 		this.setBounds(this.getX(), this.getHeight(), width, height);
+		this.height = height;
+		this.width = width;
 		System.out.println("Enemy created");
 		this.target = target;
 		enemyLoop.start();
@@ -44,9 +51,12 @@ public class Enemy extends GImage implements ActionListener {
 	}
 	
 	public void attack() {
-		if (!isAttacking) {
+		if (!isAttacking && !onCooldown) {
 			isAttacking = true;
-			
+			onCooldown = true;
+			this.setImage("media/Ogre/Ogre_Attack2.png");
+			this.setBounds(this.getX(), this.getY(), width, height);
+			attackTimer.start();
 		}
 			
 	}
@@ -61,10 +71,23 @@ public class Enemy extends GImage implements ActionListener {
 			if (magnitude >100) {
 				this.move(.5,0);
 			}else {
-				if (!isAttacking) {
-					attack();
-				}
+				attack();
+				
 			}
+		}
+		
+		if (source ==attackTimer) {
+			this.setImage("media/Ogre/Ogre_Idle.png");
+			this.setBounds(this.getX(), this.getY(), width, height);
+			attackTimer.stop();
+			isAttacking = false;
+			CD.start();
+		}
+		
+		if (source ==CD) {
+			onCooldown = false;
+			
+			CD.stop();
 		}
 		
 	}
