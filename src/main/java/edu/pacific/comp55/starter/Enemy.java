@@ -68,7 +68,7 @@ public class Enemy extends GImage implements ActionListener {
 			double targetPos = target.getX();
 			double enemyPos = this.getX();
 			double magnitude = targetPos - enemyPos;
-			if (magnitude >100) {
+			if (Math.abs(magnitude) >100) {
 				this.move(.5,0);
 			}else {
 				attack();
