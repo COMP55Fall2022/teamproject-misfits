@@ -1,5 +1,6 @@
 package edu.pacific.comp55.starter;
 import java.awt.Color;
+import java.awt.event.MouseEvent;
 
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
@@ -10,6 +11,8 @@ public class Popups extends GraphicsPane{
 	private GImage endLevel;
 	private GRect background;
 	private boolean win;
+	private GButton exitToLevel;
+	private GButton exitToMenu;
 	
 	public Popups(Game program, boolean didWin) {
 		
@@ -17,11 +20,17 @@ public class Popups extends GraphicsPane{
 		win = didWin;
 		
 		background = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT); 
-		background.setFillColor(Color.black);
+		background.setFillColor(Color.BLACK);
 		background.setFilled(true);
 		
-		endLevel = new GImage("media/LevelCleared.png");
+		endLevel = new GImage("media/LevelCleared (1).png");
 		endLevel.setLocation(0, 0);
+		
+		exitToLevel = new GButton("Change level", 350,363,200,50);
+		exitToLevel.setFillColor(Color.decode("#40a832"));
+		
+		exitToMenu = new GButton("Exit to Main Menu", 350,500,200,50);
+		exitToMenu.setFillColor(Color.decode("#cf2121"));
 	}
 	
 
@@ -55,6 +64,8 @@ public class Popups extends GraphicsPane{
 		if(win ==  true) {
 			popups.add(background);
 			popups.add(endLevel);
+			popups.add(exitToLevel);
+			popups.add(exitToMenu);
 		}
 		
 	}
@@ -62,8 +73,20 @@ public class Popups extends GraphicsPane{
 	public void removeWinScreen() {
 		popups.remove(background);
 		popups.remove(endLevel);
+		popups.remove(exitToLevel);
+		popups.remove(exitToMenu);
 	}
 	
+	
+	public void mousePressed(MouseEvent e) {
+		GObject obj = popups.getElementAt(e.getX(), e.getY());
+		if (obj == exitToLevel) {
+			popups.switchToLevel();
+		}
+		if(obj == exitToMenu) {
+			popups.switchToMenu();
+		}
+	}
 	public void drawBeginningTitle() {
 		//GImage beginningTitle = new GImage();
 		//add(beginningTitle);

@@ -20,9 +20,14 @@ public class Enemy extends GImage implements ActionListener {
 	Timer enemyLoop = new Timer(10,this);
 	Timer attackTimer = new Timer(400,this);
 	Timer CD = new Timer(attackCD,this);
+	Timer attemptAttack = new Timer(100,this);
 	Player target;
 	double height;
 	double width;
+	double targetPos;
+	double enemyPos;
+	double magnitude;
+
 	
 	
 	
@@ -56,6 +61,7 @@ public class Enemy extends GImage implements ActionListener {
 			onCooldown = true;
 			this.setImage("media/Ogre/Ogre_Attack2.png");
 			this.setBounds(this.getX(), this.getY(), width, height);
+			attemptAttack.start();
 			attackTimer.start();
 		}
 			
@@ -65,14 +71,17 @@ public class Enemy extends GImage implements ActionListener {
 		Object source = e.getSource();
 		
 		if (source==enemyLoop) {
-			double targetPos = target.getX();
-			double enemyPos = this.getX();
-			double magnitude = targetPos - enemyPos;
-			if (magnitude >100) {
-				this.move(.5,0);
+			 targetPos = target.getX();
+			 enemyPos = this.getX();
+			 magnitude = targetPos - enemyPos;
+			if (Math.abs(magnitude) >100) {
+				if (magnitude<0) {
+					this.move(-.5,0);
+				}else {
+					this.move(.5,0);
+				}
 			}else {
 				attack();
-				
 			}
 		}
 		
@@ -88,6 +97,17 @@ public class Enemy extends GImage implements ActionListener {
 			onCooldown = false;
 			
 			CD.stop();
+		}
+		
+		if (source ==attemptAttack) {
+			 targetPos = target.getX();
+			 enemyPos = this.getX();
+			 magnitude = targetPos - enemyPos;
+			if (Math.abs(magnitude)<=100) {
+				target.takeDamage(20);
+				System.out.println(target.health);
+				attemptAttack.stop();
+			}
 		}
 		
 	}
