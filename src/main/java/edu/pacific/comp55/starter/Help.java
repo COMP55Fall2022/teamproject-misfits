@@ -19,7 +19,7 @@ public class Help extends GraphicsPane {
 	 private GLabel help;
 	 private GLabel leftMove;
 	 private GLabel rightMove;
-	 private GRect helpBack;
+	 private GImage helpBack;
 	 private GLabel jump;
 	 private GLabel attack;
 	 private GParagraph play;
@@ -27,11 +27,8 @@ public class Help extends GraphicsPane {
 	  
 	 public Help(Game app) { 
 		 this.helpProgram = app; 
-		 helpBack = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
-		 
-		 
-		 helpBack.setFillColor(Color.decode("#2825e8"));
-		 helpBack.setFilled(true);
+		 helpBack = new GImage("media/LevelCleared.png",-60, -900);
+		 helpBack.setSize(1000, 2000);
 		 
 		 para = new GLabel("Welcome To The Help Menu", 160, 100);
 		 para.setFont("Arial-45");
