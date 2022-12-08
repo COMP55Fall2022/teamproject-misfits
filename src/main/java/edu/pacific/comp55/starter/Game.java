@@ -24,7 +24,6 @@ package edu.pacific.comp55.starter;
   
   public void run() {
   
-  init(); 
   
   int fps = 60; //number of frames per second. start of GAMELOOP
   double tickPerSecond = 1000000000/fps; 
