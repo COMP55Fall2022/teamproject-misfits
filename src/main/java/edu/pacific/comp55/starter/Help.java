@@ -37,16 +37,16 @@ public class Help extends GraphicsPane {
 		 para.setFont("Arial-45");
 		 para.setColor(Color.black);
 		 
-		 play = new GParagraph( "When you start the game you will notice that you have a start menu and if you click on start \nit will"
-		 		+ "take you to the level selector where you can choose which level you want to play. The \nobjective of the game is to attack and kill the enemies"
-		 		+ "before they attack and kill you", 10, 200);
+		 play = new GParagraph( "Lets fight! In each level you will encounter a varrying number of enemies which will enter the level. \nYour objective is to"
+		 		+ " attack and kill the enemies"
+		 		+ " before they attack and kill you. If you succeed, you \nwill be able to upgrade your attack method and move on to the next level.", 10, 200);
 		 play.setFont("Arial-20");
 		 play.setColor(Color.black);
 		 
 		 
 		 
 		 help = new GLabel("Making the player move and attacking the enemy", 10,300);
-		 help.setFont("Arial-italic-20");
+		 help.setFont("Arial-bold-20");
 		 help.setColor(Color.black);
 		 
 		 leftMove = new GLabel("Move player left: press left arrow key", 10,330);
