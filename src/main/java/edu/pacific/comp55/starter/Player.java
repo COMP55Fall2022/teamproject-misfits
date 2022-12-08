@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import acm.graphics.*;
 
+import java.util.ArrayList;
 import java.util.TimerTask;
 import java.util.concurrent.*;
 import javax.swing.Timer;
@@ -18,9 +19,12 @@ public class Player extends GImage implements ActionListener {
 	boolean isAttacking = false;
 	boolean isJumping = false;
 	boolean onGround = true;
+	boolean takeDamageDebounce = false;
 	int attackCD = 1; //(seconds)
 	double height;
 	double width;
+	ArrayList <Enemy> enemies;
+	
 	
 	public  int dx;
 	public  int dy;
@@ -30,6 +34,7 @@ public class Player extends GImage implements ActionListener {
 	public Timer movementTimer;
 	public Timer attackReset;
 	public Timer jumpTimer = new Timer(10,this);
+	public Timer damageReset = new Timer(500,this);
 	int jumpCount = 0;
 	int gravityEffect = 4;
 	AudioPlayer audio = AudioPlayer.getInstance(); 
@@ -40,6 +45,7 @@ public class Player extends GImage implements ActionListener {
 	
 	public Player(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower) {
 		super(playerModel, width, height);
+		this.enemies = new ArrayList<Enemy>();
 		this.health = health;
 		this.attackDamage = attackDamage;
 		this.jumpPower = jumpPower;
@@ -50,13 +56,22 @@ public class Player extends GImage implements ActionListener {
 		attackReset = new Timer(400,this);
 		this.setBounds(this.getX(), this.getY(), width, height);
 		System.out.println("Player created");
+		//movementTimer.start();
+	}
+	
+	public void startGame() {
 		movementTimer.start();
+	}
+	
+	public void addEnemiy(Enemy e) {
+		enemies.add(e);
 	}
 	
 	
 	public void takeDamage(int dmg) {
 		health -=dmg;
 		System.out.println(health);
+		damageReset.start();
 	}
 	
 	public void attack() {
@@ -64,6 +79,12 @@ public class Player extends GImage implements ActionListener {
 		this.isAttacking = true;
 		this.setImage("media/Turtle/onigiri_action2.png");
 		this.setBounds(this.getX(), this.getY(), this.width, this.height);
+		
+		for(Enemy e: enemies) {
+			if (this.getBounds().intersects(e.getBounds())) {
+				e.takeDamage(10);
+			}
+		}
 		audio.playSound("sounds", "Swing.mp3");
 		attackReset.start();
 		}
@@ -132,6 +153,11 @@ public class Player extends GImage implements ActionListener {
 			this.isJumping = false;
 			jumpTimer.stop();
 			
+		}
+		
+		if (source ==damageReset) {
+			this.takeDamageDebounce= false;
+			damageReset.stop();
 		}
 		
 	}

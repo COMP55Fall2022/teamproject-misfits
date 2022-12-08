@@ -17,10 +17,10 @@ public class Enemy extends GImage implements ActionListener {
 	boolean isAttacking = false;
 	boolean onCooldown = false;
 	int attackCD = 400; //(ms)
-	Timer enemyLoop = new Timer(10,this);
+	Timer enemyLoop = new Timer(50,this);
 	Timer attackTimer = new Timer(400,this);
 	Timer CD = new Timer(attackCD,this);
-	Timer attemptAttack = new Timer(100,this);
+	Timer attemptAttack = new Timer(300,this);
 	Player target;
 	double height;
 	double width;
@@ -46,6 +46,10 @@ public class Enemy extends GImage implements ActionListener {
 		this.width = width;
 		System.out.println("Enemy created");
 		this.target = target;
+		//enemyLoop.start();
+	}
+	
+	public void startGame() {
 		enemyLoop.start();
 	}
 	
@@ -76,9 +80,9 @@ public class Enemy extends GImage implements ActionListener {
 			 magnitude = targetPos - enemyPos;
 			if (Math.abs(magnitude) >100) {
 				if (magnitude<0) {
-					this.move(-.5,0);
+					this.move(-2,0);
 				}else {
-					this.move(.5,0);
+					this.move(2,0);
 				}
 			}else {
 				attack();
@@ -103,10 +107,12 @@ public class Enemy extends GImage implements ActionListener {
 			 targetPos = target.getX();
 			 enemyPos = this.getX();
 			 magnitude = targetPos - enemyPos;
-			if (Math.abs(magnitude)<=100) {
+			if (Math.abs(magnitude)>=90) {
+				if (!target.takeDamageDebounce) {
+				target.takeDamageDebounce = true;
 				target.takeDamage(20);
-				System.out.println(target.health);
 				attemptAttack.stop();
+				}
 			}
 		}
 		
