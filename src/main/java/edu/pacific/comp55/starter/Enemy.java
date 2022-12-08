@@ -17,7 +17,7 @@ public class Enemy extends GImage implements ActionListener {
 	boolean isAttacking = false;
 	boolean onCooldown = false;
 	int attackCD = 400; //(ms)
-	Timer enemyLoop = new Timer(50,this);
+	public Timer enemyLoop = new Timer(10,this);
 	Timer attackTimer = new Timer(400,this);
 	Timer CD = new Timer(attackCD,this);
 	Timer attemptAttack = new Timer(300,this);
@@ -27,6 +27,8 @@ public class Enemy extends GImage implements ActionListener {
 	double targetPos;
 	double enemyPos;
 	double magnitude;
+	
+	public Level level;
 
 	
 	
@@ -35,7 +37,7 @@ public class Enemy extends GImage implements ActionListener {
 	//You're gonna need to include all these values when creating an enemy, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
 	
-	public Enemy(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower,Player target) {
+	public Enemy(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower,Player target,Level level) {
 		super(playerModel, width, height);
 		this.health = health;
 		this.attackDamage = attackDamage;
@@ -46,6 +48,7 @@ public class Enemy extends GImage implements ActionListener {
 		this.width = width;
 		System.out.println("Enemy created");
 		this.target = target;
+		this.level=level;
 		//enemyLoop.start();
 	}
 	
@@ -56,6 +59,11 @@ public class Enemy extends GImage implements ActionListener {
 	public int takeDamage(int dmg) {
 		health -=dmg;
 		System.out.println(health);
+		if(this.health<=0) {
+			level.removeEnemy(this);
+			
+			
+		}
 		return dmg;
 	}
 	
@@ -80,9 +88,9 @@ public class Enemy extends GImage implements ActionListener {
 			 magnitude = targetPos - enemyPos;
 			if (Math.abs(magnitude) >100) {
 				if (magnitude<0) {
-					this.move(-2,0);
+					this.move(-1,0);
 				}else {
-					this.move(2,0);
+					this.move(1,0);
 				}
 			}else {
 				attack();

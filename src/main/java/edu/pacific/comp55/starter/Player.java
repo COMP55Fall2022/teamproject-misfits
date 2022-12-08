@@ -63,7 +63,7 @@ public class Player extends GImage implements ActionListener {
 		movementTimer.start();
 	}
 	
-	public void addEnemiy(Enemy e) {
+	public void addEnemy(Enemy e) {
 		enemies.add(e);
 	}
 	
@@ -82,7 +82,7 @@ public class Player extends GImage implements ActionListener {
 		
 		for(Enemy e: enemies) {
 			if (this.getBounds().intersects(e.getBounds())) {
-				e.takeDamage(10);
+				e.takeDamage(50);
 			}
 		}
 		audio.playSound("sounds", "Swing.mp3");

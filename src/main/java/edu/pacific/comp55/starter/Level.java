@@ -26,7 +26,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	//private Game pauseMenu;
 	private Player player;
 	private Enemy enemy1;
-	private Game mainScreen;
+	public Game mainScreen;
 	private HUD playerHud;
 	private HUD healthB;
 	//private GObject Environment;
@@ -38,9 +38,9 @@ public class Level extends GraphicsPane implements ActionListener{
 	public Level(Game program) {
 		mainScreen = program;
 		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 200, 5, 2, 8);
-		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 200, 5, 5, 5,player);
+		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 200, 5, 5, 5,player,this);
 		enemy1.setLocation(0, 275);
-		player.addEnemiy(enemy1);
+		player.addEnemy(enemy1);
 		player.move(200, 200);
 		playerHud = new HUD(20, 50, 100, 25); //creating health bar
 		playerHud.setFillColor(Color.RED);
@@ -59,6 +59,14 @@ public class Level extends GraphicsPane implements ActionListener{
 		player.startGame();
 		enemy1.startGame();
 	}
+	
+	public void removeEnemy(Enemy target) {
+		mainScreen.remove(target);
+		target.enemyLoop.stop();
+		target = null;
+
+	}
+	
 	
 	
 
