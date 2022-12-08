@@ -33,7 +33,7 @@ public class Help extends GraphicsPane {
 		 helpBack.setFillColor(Color.decode("#2825e8"));
 		 helpBack.setFilled(true);
 		 
-		 para = new GLabel("Welcome to the help Menu", 160, 100);
+		 para = new GLabel("Welcome To The Help Menu", 160, 100);
 		 para.setFont("Arial-45");
 		 para.setColor(Color.black);
 		 
