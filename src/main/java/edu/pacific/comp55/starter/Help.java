@@ -30,7 +30,7 @@ public class Help extends GraphicsPane {
 		 helpBack = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
 		 
 		 
-		 helpBack.setFillColor(Color.blue);
+		 helpBack.setFillColor(Color.decode("#2825e8"));
 		 helpBack.setFilled(true);
 		 
 		 para = new GLabel("Welcome to the help Menu", 160, 100);

@@ -32,7 +32,7 @@ import acm.graphics.GRect;
 		  levelSelector = program; 
 		  
 		  background = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT); 
-		  background.setFillColor(Color.red);
+		  background.setFillColor(Color.decode("#cf2121"));
 		  background.setFilled(true);
 		  
 		  title = new GLabel("Please select a level", 240, 100);
