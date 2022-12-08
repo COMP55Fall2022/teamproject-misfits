@@ -40,6 +40,7 @@ package edu.pacific.comp55.starter;
   delta--;
   }} 
   */
+  
   }
   
 private void tick() { // updates the movement of sprites
