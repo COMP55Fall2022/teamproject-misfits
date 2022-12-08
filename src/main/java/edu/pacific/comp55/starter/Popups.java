@@ -15,6 +15,7 @@ public class Popups extends GraphicsPane{
 	private GButton exitToMenu;
 	private GButton exitGame;
 	private GImage lossBackground;
+	private GLabel loss;
 	
 	public Popups(Game program, boolean didWin) {
 		
@@ -39,6 +40,10 @@ public class Popups extends GraphicsPane{
 		
 		lossBackground = new GImage("media/LevelLost.png");
 		lossBackground.setLocation(0, 215);
+		
+		loss = new GLabel("You Lost", 362.5, 100);
+		loss.setFont("Arial-45");
+		loss.setColor(Color.decode("#cf2121"));
 	
 	}
 	
@@ -67,6 +72,7 @@ public class Popups extends GraphicsPane{
 	
 	public void drawLossScreen() {
 		popups.add(background);
+		popups.add(loss);
 		popups.add(lossBackground);
 		popups.add(exitToLevel);
 		popups.add(exitToMenu);
@@ -75,6 +81,7 @@ public class Popups extends GraphicsPane{
 	
 	public void removeLossScreen() {
 		popups.remove(background);
+		popups.remove(loss);
 		popups.remove(lossBackground);
 		popups.remove(exitToLevel);
 		popups.remove(exitToMenu);
