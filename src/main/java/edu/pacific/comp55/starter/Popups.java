@@ -14,13 +14,13 @@ public class Popups extends GraphicsPane{
 	private GButton exitToLevel;
 	private GButton exitToMenu;
 	private GButton exitGame;
+	private GLabel loss;
 	
 	public Popups(Game program, boolean didWin) {
-		super();
 		
 		popups = program;
 		win = didWin;
-		
+		win = false;
 		background = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT); 
 		background.setFillColor(Color.BLACK);
 		background.setFilled(true);
@@ -31,11 +31,15 @@ public class Popups extends GraphicsPane{
 		exitToLevel = new GButton("Change level", 350,235,200,50);
 		exitToLevel.setFillColor(Color.decode("#40a832"));
 		
-		exitToMenu = new GButton("Exit to Main Menu", 350,490,200,50);
+		exitToMenu = new GButton("Return to Main Menu", 350,490,200,50);
 		exitToMenu.setFillColor(Color.decode("#2825e8"));
 		
 		exitGame = new GButton("Exit the Game", 350,363,200,50);
 		exitGame.setFillColor(Color.decode("#cf2121"));
+		
+		loss = new GLabel("You Lost", 362.5, 100);
+		loss.setFont("Arial-45");
+		loss.setColor(Color.decode("#cf2121"));
 	}
 	
 
@@ -44,8 +48,11 @@ public class Popups extends GraphicsPane{
 
 	public void showContents() {
 		// TODO Auto-generated method stub
-		
-		drawWinScreen();
+		if(win == true) {
+			drawWinScreen();
+		}else {
+			drawLossScreen();
+		}
 	}
 
 
@@ -53,27 +60,33 @@ public class Popups extends GraphicsPane{
 		// TODO Auto-generated method stub
 		if (win ==  true) {
 			removeWinScreen();
+		}else {
+			removeLossScreen();
 		}
 	}
 	
 	public void drawLossScreen() {
-		//GImage lossScreen = new GImage();
-		//add(LossScreen);
+		popups.add(background);
+		popups.add(loss);
+		popups.add(exitToLevel);
+		popups.add(exitToMenu);
+		popups.add(exitGame);
+	}
+	
+	public void removeLossScreen() {
+		popups.remove(background);
+		popups.remove(loss);
+		popups.remove(exitToLevel);
+		popups.remove(exitToMenu);
+		popups.remove(exitGame);
 	}
 	
 	public void drawWinScreen() {
-		
-		//add(winScreen);
-		//private Popups winScreen;
-		//winScreen = new Popups(this);
-		if(win ==  true) {
-			popups.add(background);
-			popups.add(endLevel);
-			popups.add(exitToLevel);
-			popups.add(exitToMenu);
-			popups.add(exitGame);
-		}
-		
+		popups.add(background);
+		popups.add(endLevel);
+		popups.add(exitToLevel);
+		popups.add(exitToMenu);
+		popups.add(exitGame);
 	}
 	
 	public void removeWinScreen() {
