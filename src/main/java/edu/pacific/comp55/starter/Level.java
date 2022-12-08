@@ -37,9 +37,10 @@ public class Level extends GraphicsPane implements ActionListener{
 	
 	public Level(Game program) {
 		mainScreen = program;
-		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 5, 5, 2, 8);
+		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 200, 5, 2, 8);
 		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 200, 5, 5, 5,player);
 		enemy1.setLocation(0, 275);
+		player.addEnemiy(enemy1);
 		player.move(200, 200);
 		playerHud = new HUD(20, 50, 100, 25); //creating health bar
 		playerHud.setFillColor(Color.RED);
@@ -52,6 +53,11 @@ public class Level extends GraphicsPane implements ActionListener{
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
 		pop = new GButton("pop", 100, 150, 50, 20, Color.white);
 		environment = new Environment (program, "media/collection-mountain-scenery-for-game-background-vector-14922765.jpg",0,0);
+	}
+	
+	public void startLevel() {
+		player.startGame();
+		enemy1.startGame();
 	}
 	
 	
@@ -74,6 +80,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.add(enemy1);
 		mainScreen.add(pop);
 		//mainScreen.add(Environment);
+		startLevel();
 	}
 	  
 	@Override 

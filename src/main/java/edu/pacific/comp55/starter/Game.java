@@ -22,16 +22,14 @@ package edu.pacific.comp55.starter;
   
   boolean running = true;
   
+
   public void run() {
-  
-  init(); 
-  
   int fps = 60; //number of frames per second. start of GAMELOOP
   double tickPerSecond = 1000000000/fps; 
   double delta = 0; 
   long now;
   long lastTime = System.nanoTime();
-  
+  /*
   while(running){
   
   now = System.nanoTime(); delta += (now - lastTime)/tickPerSecond; 
@@ -41,7 +39,10 @@ package edu.pacific.comp55.starter;
   
   render();
   delta--;
-  }} }
+  }} 
+  */
+  
+  }
   
 private void tick() { // updates the movement of sprites
  // System.out.println("Tick");
