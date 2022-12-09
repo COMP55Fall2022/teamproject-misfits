@@ -187,19 +187,6 @@ public class Level extends GraphicsPane implements ActionListener{
 		return enemiesRemaining;
 	}
 	
-	public void attack() {
-		attack.setInitialDelay(0);
-		attack.start();
-		
-		
-		String attackType = "";
-		switch(attackType) {
-		case "sword":
-			this.attackDamage = 10;
-			break;
-		}
-	}
-	
 	public void addAnEnemy() {
 		addEnemy.setInitialDelay(2000);
 		addEnemy.start();
@@ -211,9 +198,6 @@ public class Level extends GraphicsPane implements ActionListener{
 		
 	}
 
-	public void moveAllEnemies() {
-		
-	}
 	
 	public void resetLevelStats() {
 		
