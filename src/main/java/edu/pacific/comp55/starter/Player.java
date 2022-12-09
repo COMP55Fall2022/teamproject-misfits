@@ -71,6 +71,9 @@ public class Player extends GImage implements ActionListener {
 	public void takeDamage(int dmg) {
 		health -=dmg;
 		System.out.println(health);
+		if (health<=0){
+			
+		}
 		damageReset.start();
 	}
 	
