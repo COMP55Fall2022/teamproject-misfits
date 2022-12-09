@@ -61,6 +61,8 @@ public class Enemy extends GImage implements ActionListener {
 	
 	public void startGame() {
 		enemyLoop.start();
+		this.dead = false;
+		this.health = 200;
 	}
 	
 	public int takeDamage(int dmg) {
@@ -126,7 +128,7 @@ public class Enemy extends GImage implements ActionListener {
 			if (Math.abs(magnitude)>=90) {
 				if (!target.takeDamageDebounce) {
 				target.takeDamageDebounce = true;
-				target.takeDamage(20);
+				target.takeDamage(35);
 				audio.playSound("sounds", "OgreImpact.mp3");
 				
 				attemptAttack.stop();

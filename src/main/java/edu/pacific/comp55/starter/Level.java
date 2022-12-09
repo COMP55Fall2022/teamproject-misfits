@@ -57,10 +57,15 @@ public class Level extends GraphicsPane implements ActionListener{
 	public void startLevel() {
 		player.startGame();
 		enemy1.startGame();
+		enemy1.health = 200;
+		player.health = 200;
+		enemy1.setLocation(0,275);
+		player.isAttacking = false;
+		player.attackReset.stop();
 	}
 	
 	public void removeEnemy(Enemy target) {
-		mainScreen.remove(target);
+		//mainScreen.remove(target);
 		target.enemyLoop.stop();
 		
 		target = null;
@@ -68,14 +73,13 @@ public class Level extends GraphicsPane implements ActionListener{
 	}
 	
 	public void removePlayer(Player target) {
-		mainScreen.remove(target);
-		target.enemies.remove(enemy1);
-		
-		target = null;
+		//mainScreen.remove(target);
+		//target.enemies.remove(enemy1);
 	}
 	
 	public void didNotWin(boolean loss) {
 		mainScreen.switchToPopups(loss);
+		enemy1.enemyLoop.stop();
 	}
 	
 

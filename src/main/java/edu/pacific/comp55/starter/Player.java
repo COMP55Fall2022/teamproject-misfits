@@ -79,9 +79,10 @@ public class Player extends GImage implements ActionListener {
 	
 	public void takeDamage(int dmg) {
 		
-		if (this.health == 0){
+		if (this.health <= 0){
 			this.win = false;
 			level.removePlayer(this);
+			this.takeDamageDebounce = false;
 			didWin.didNotWin(win);
 		} else {
 			health -=dmg;
