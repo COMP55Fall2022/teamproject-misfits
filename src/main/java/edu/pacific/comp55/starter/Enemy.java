@@ -16,6 +16,7 @@ public class Enemy extends GImage implements ActionListener {
 	boolean isParrying = false;
 	boolean isAttacking = false;
 	boolean onCooldown = false;
+	boolean dead = false;
 	int attackCD = 400; //(ms)
 	public Timer enemyLoop = new Timer(10,this);
 	Timer attackTimer = new Timer(400,this);
@@ -27,6 +28,9 @@ public class Enemy extends GImage implements ActionListener {
 	double targetPos;
 	double enemyPos;
 	double magnitude;
+	
+	AudioPlayer audio = AudioPlayer.getInstance(); 
+
 	
 	public Level level;
 
@@ -49,6 +53,7 @@ public class Enemy extends GImage implements ActionListener {
 		System.out.println("Enemy created");
 		this.target = target;
 		this.level=level;
+		this.dead = false;
 		//enemyLoop.start();
 	}
 	
@@ -59,10 +64,10 @@ public class Enemy extends GImage implements ActionListener {
 	public int takeDamage(int dmg) {
 		health -=dmg;
 		System.out.println(health);
+		this.move(-15, 0);
 		if(this.health<=0) {
+			this.dead = true;
 			level.removeEnemy(this);
-			
-			
 		}
 		return dmg;
 	}
@@ -86,7 +91,7 @@ public class Enemy extends GImage implements ActionListener {
 			 targetPos = target.getX();
 			 enemyPos = this.getX();
 			 magnitude = targetPos - enemyPos;
-			if (Math.abs(magnitude) >100) {
+			if (Math.abs(magnitude) >120) {
 				if (magnitude<0) {
 					this.move(-1,0);
 				}else {
@@ -119,6 +124,8 @@ public class Enemy extends GImage implements ActionListener {
 				if (!target.takeDamageDebounce) {
 				target.takeDamageDebounce = true;
 				target.takeDamage(20);
+				audio.playSound("sounds", "OgreImpact.mp3");
+				
 				attemptAttack.stop();
 				}
 			}

@@ -63,6 +63,7 @@ public class Level extends GraphicsPane implements ActionListener{
 	public void removeEnemy(Enemy target) {
 		mainScreen.remove(target);
 		target.enemyLoop.stop();
+		
 		target = null;
 
 	}

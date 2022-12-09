@@ -84,8 +84,9 @@ public class Player extends GImage implements ActionListener {
 		this.setBounds(this.getX(), this.getY(), this.width, this.height);
 		
 		for(Enemy e: enemies) {
-			if (this.getBounds().intersects(e.getBounds())) {
+			if (e.dead!=true && getBounds().intersects(e.getBounds())) {
 				e.takeDamage(50);
+				audio.playSound("sounds", "Impact2.mp3");
 			}
 		}
 		audio.playSound("sounds", "Swing.mp3");
