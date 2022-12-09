@@ -52,7 +52,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		healthB.setFilled(true);
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
 		pop = new GButton("pop", 100, 150, 50, 20, Color.white);
-		environment = new Environment (program, "media/collection-mountain-scenery-for-game-background-vector-14922765.jpg",0,0);
+		environment = new Environment (program, "media/BG.png",0,0);
 	}
 	
 	public void startLevel() {

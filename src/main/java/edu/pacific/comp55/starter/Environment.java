@@ -18,7 +18,7 @@ import java.lang.Thread;
 		int i = 0;
 		int x1 = 800;
 		int y1 = 0;
-		int velocity = -50;
+		int velocity = -1;
 		int BREAK_MS = 30;
 		GImage background;
 		GImage cloud;
@@ -28,9 +28,9 @@ import java.lang.Thread;
 		public Environment (Game app, String name, int x, int y) {
 			background = new GImage(name, x, y);
 			background.setSize(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT);
-			cloud = new GImage("media/cumulus-cloud-3.jpg", 800, 0);
-			cloud.setSize(50,50);
-			cloudTimer = new Timer(500, this);
+			cloud = new GImage("media/Cloud.png", 800, -200);
+			cloud.setSize(400,400);
+			cloudTimer = new Timer(50, this);
 			this.app = app;
 			
 		}		
@@ -50,10 +50,8 @@ import java.lang.Thread;
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			cloud.move(velocity, 0);
-			i=i+1;
-			if (i==19) {
-				cloud.move(1050,0);
-				i=0;
+			if (cloud.getX()<-400) {
+				cloud.move(1350,0);
 			}
 		}
 
