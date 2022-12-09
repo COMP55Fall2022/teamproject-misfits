@@ -33,8 +33,9 @@ public class Enemy extends GImage implements ActionListener {
 
 	
 	public Level level;
-
 	
+	private Level didWin;
+	public boolean win = true;
 	
 	
 
@@ -54,6 +55,7 @@ public class Enemy extends GImage implements ActionListener {
 		this.target = target;
 		this.level=level;
 		this.dead = false;
+		this.didWin = level;
 		//enemyLoop.start();
 	}
 	
@@ -68,6 +70,7 @@ public class Enemy extends GImage implements ActionListener {
 		if(this.health<=0) {
 			this.dead = true;
 			level.removeEnemy(this);
+			didWin.didNotWin(dead);
 		}
 		return dmg;
 	}

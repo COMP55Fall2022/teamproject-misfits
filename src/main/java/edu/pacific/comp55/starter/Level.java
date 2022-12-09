@@ -32,12 +32,12 @@ public class Level extends GraphicsPane implements ActionListener{
 	//private GObject Environment;
 	int health = 100;
 	private Environment environment;
-	private GButton pop;
-	private boolean win = true;
+	private boolean win = false;
+	
 	
 	public Level(Game program) {
 		mainScreen = program;
-		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 200, 5, 2, 8);
+		player = new Player("media/Turtle/onigiri_color_idle.png", 150, 150, 200, 5, 2, 8, this);
 		enemy1 = new Enemy("media/Ogre/Ogre_Idle.png", 200, 200, 200, 5, 5, 5,player,this);
 		enemy1.setLocation(0, 275);
 		player.addEnemy(enemy1);
@@ -51,7 +51,6 @@ public class Level extends GraphicsPane implements ActionListener{
 		healthB.setFillColor(Color.green);
 		healthB.setFilled(true);
 		exitToMenu = new GButton("Exit", 20, 20, 50, 20, Color.white);
-		pop = new GButton("pop", 100, 150, 50, 20, Color.white);
 		environment = new Environment (program, "media/BG.png",0,0);
 	}
 	
@@ -68,7 +67,16 @@ public class Level extends GraphicsPane implements ActionListener{
 
 	}
 	
+	public void removePlayer(Player target) {
+		mainScreen.remove(target);
+		target.enemies.remove(enemy1);
+		
+		target = null;
+	}
 	
+	public void didNotWin(boolean loss) {
+		mainScreen.switchToPopups(loss);
+	}
 	
 
 //	public void Pause(Game app) {
@@ -86,8 +94,7 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.add(playerHud);
 		mainScreen.add(healthB);
 		//highly suggest when we add in enemies to store them in an array or vector and then loop through them to show/hide them
-		mainScreen.add(enemy1);
-		mainScreen.add(pop);
+		mainScreen.add(enemy1);;
 		//mainScreen.add(Environment);
 		startLevel();
 	}
@@ -100,7 +107,6 @@ public class Level extends GraphicsPane implements ActionListener{
 		mainScreen.remove(healthB);
 		mainScreen.remove(enemy1);
 		environment.hideEnvironment();
-		mainScreen.remove(pop);
 	}
 	
 	@Override 
@@ -108,9 +114,6 @@ public class Level extends GraphicsPane implements ActionListener{
 		  GObject obj = mainScreen.getElementAt(e.getX(), e.getY());
 		  if (obj ==  exitToMenu) {
 			  mainScreen.switchToMenu(); 
-		  }
-		  if (obj ==  pop) {
-			  mainScreen.switchToPopups(win);
 		  }
 	}
 	

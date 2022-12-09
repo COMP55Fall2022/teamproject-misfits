@@ -19,6 +19,7 @@ public class Game extends GraphicsApplication implements Runnable {
 	private Popups popUps;
 
 	boolean running = true;
+	boolean win;
 
 	public void run() {
 
@@ -30,7 +31,7 @@ public class Game extends GraphicsApplication implements Runnable {
 		gameHelp = new Help(this);
 		level = new Level(this);
 		levelMenu = new LevelSelector(this);
-		popUps = new Popups(this, running);
+		
 		setupInteractions();
 		switchToMenu();
 	}
@@ -51,6 +52,7 @@ public class Game extends GraphicsApplication implements Runnable {
 	}
 
 	public void switchToPopups(boolean win) {
+		popUps = new Popups(this, win);
 		switchToScreen(popUps);
 	}
 

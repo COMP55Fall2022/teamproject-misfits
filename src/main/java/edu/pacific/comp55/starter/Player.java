@@ -38,12 +38,18 @@ public class Player extends GImage implements ActionListener {
 	int jumpCount = 0;
 	int gravityEffect = 4;
 	AudioPlayer audio = AudioPlayer.getInstance(); 
+	
+	private Level didWin;
+	public boolean win;
+	private Enemy enemy;
+	
+	public Level level;
 
 
 	//You're gonna need to include all these values when creating the player, that way it
 	//stays customizable, I don't want to hard code any of this inn case we want to switch things around
 	
-	public Player(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower) {
+	public Player(String playerModel, double width, double height,int health,int attackDamage, int moveSpeed, int jumpPower, Level level) {
 		super(playerModel, width, height);
 		this.enemies = new ArrayList<Enemy>();
 		this.health = health;
@@ -57,6 +63,9 @@ public class Player extends GImage implements ActionListener {
 		this.setBounds(this.getX(), this.getY(), width, height);
 		System.out.println("Player created");
 		//movementTimer.start();
+		this.didWin = level;
+		this.level = level;
+		 
 	}
 	
 	public void startGame() {
@@ -69,12 +78,17 @@ public class Player extends GImage implements ActionListener {
 	
 	
 	public void takeDamage(int dmg) {
-		health -=dmg;
-		System.out.println(health);
-		if (health<=0){
-			
+		
+		if (this.health == 0){
+			this.win = false;
+			level.removePlayer(this);
+			didWin.didNotWin(win);
+		} else {
+			health -=dmg;
+			System.out.println(health);
+			damageReset.start();
 		}
-		damageReset.start();
+		
 	}
 	
 	public void attack() {

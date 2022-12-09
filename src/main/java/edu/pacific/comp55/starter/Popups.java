@@ -21,7 +21,7 @@ public class Popups extends GraphicsPane{
 		
 		popups = program;
 		win = didWin;
-		win = false;
+		
 		background = new GRect(Game.WINDOW_WIDTH, Game.WINDOW_HEIGHT); 
 		background.setFillColor(Color.BLACK);
 		background.setFilled(true);
