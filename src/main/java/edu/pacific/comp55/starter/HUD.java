@@ -15,7 +15,8 @@ public class HUD extends GRect {
 	  public HUD(double x, double y, double width, double height) {
 		super(x, y, width, height);
 		}
-	  public void clamp(int val, int min, int max) {
+	  public void clamp(int val, int min, int max) { //clamps the healthbar so that it doesnt shift
+		  											//but instead declines
 		 		  
 		  
 		  clamp =  Math.max(min, Math.min(max,val));
